@@ -1,49 +1,8 @@
-var add_category;
-var add_mode;
-var add_subject;
-var add_contents;
-var add_code;
-var add_file_name;
-var uuid;
-var tag;
-var add_room_no;
-function getImage(cat,mode) {
-    add_category=cat;
-    add_mode=mode;
-    uuid=device.uuid;
-    console.log("카메라");
-    if (add_mode=="freeboard") {
-          add_subject=$("#freeboard_subject").val();
-          add_contents=$("#freeboard_contents").val();
-          if (!add_subject) {
-            alert_msg("경고","제목을 입력하세요.");
-            exit;
-          } else if (!add_contents) {
-            alert_msg("경고","내용을 입력하세요.");
-            exit;
-          }
 
-    } else if (add_mode=="qna") {
-    add_contents=$("#qna_contents").val();
-    } else if (add_mode=="goods") {
-    add_contents=$("#goods_contents").val();
-    } else if (add_mode=="parade")
-    {
-         add_contents=$("#parade_contents").val();
-    } else if (add_mode=="photo") 
-    {
-         tag=$("#tag").val();
-         if (!tag) {
-          alert_msg("경고","태그를 먼저 입력하세요.");
-          exit;
-         }
-    }  else if (add_mode=="chat"){
-        add_room_no=$("#room_no").val();
-    }
+function getImage() {
+ 
 
-
-        console.log("camera"+cat + "mode "+add_mode+ " contents "+ add_contents);
-        // Retrieve image file location from specified source
+   
         navigator.camera.getPicture(uploadPhoto, function(message) {
 alert('사진 등록에 실패 했습니다.');
 },{
@@ -53,28 +12,7 @@ sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
 });
     }
 
-    function getImage_board(cat) {
-        console.log("게시판 사진 첨부 카메라");
-
-    uuid=device.uuid;
-  
     
-          add_subject=$("#freeboard_subject").val();
-          add_contents=$("#freeboard_contents").val();
-          add_code=$("#add_code").val();
-         
-
-
-       // console.log("camera"+cat + "mode "+add_mode+ " contents "+ add_contents+ " add_code "+ add_code);
-        // Retrieve image file location from specified source
-        navigator.camera.getPicture(uploadPhoto_pic, function(message) {
-alert('사진 등록에 실패 했습니다.');
-},{
-quality: 100,
-destinationType: navigator.camera.DestinationType.FILE_URI,
-sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
-});
-    }
 
     function uploadPhoto(imageURI) {
         
@@ -88,57 +26,28 @@ sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
         var params = new Object();
         params.value1 = "test";
         params.value2 = "param";
-        params.category=add_category;
-        params.mode=add_mode;
-        params.member_srl=member_srl;
-        params.contents=add_contents;
+     
         params.uuid=uuid;
-        params.tag=tag;
-        params.subject=add_subject;
-        params.room_no=add_room_no;
-
+    
      
 
         options.params = params;
         options.chunkedMode = false;
 
         var ft = new FileTransfer();
-        ft.upload(imageURI, "http://ku4h.com/upload_app.php", win, fail, options);
+        ft.upload(imageURI, "http://ku4h.com/upload_app_profile.php", win, fail, options);
     }
 
- function uploadPhoto_pic(imageURI) {
+
+
+function win(r) {
       
-         navigator.notification.activityStart("사진 등록 중", "사진 업로드 중입니다.");
-        var options = new FileUploadOptions();
-        options.fileKey="files";
-        options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-        add_file_name=member_srl+"_"+imageURI.substr(imageURI.lastIndexOf('/')+1);
-        options.mimeType="image/jpeg";
 
-        var params = new Object();
-        params.value1 = "test";
-        params.value2 = "param";
-        params.add_code=add_code;
-        params.member_srl=member_srl;
-       
-     
-
-        options.params = params;
-        options.chunkedMode = false;
-
-        var ft = new FileTransfer();
-        ft.upload(imageURI, "http://ku4h.com/upload_file_app.php", win_board, fail, options);
-    }
-// 게시판 사진 첨부
-
-function win_board(r) {
-      
-navigator.notification.activityStop();
       var img_src="http://ku4h.com/photo/"+member_srl+"_"+add_code+".jpg";
       var file_name=member_srl+"_"+add_code+".jpg";
       console.log(img_src);
       $("#img_board").attr("src", img_src);
-      $("#file_name").val(file_name);
+ 
     }
 
     // 성공

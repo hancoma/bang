@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
+
+   
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+ 
+      <link rel="stylesheet" type="text/css" href="css/uikit.min.css">
+       <link href="css/ratchet.min.css" rel="stylesheet">
+
+          <script src="js/uikit.js"></script>
+          <script src="js/ratchet.js"></script>
+          <script src="//cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+             <link rel="stylesheet" type="text/css" href="css/index.css" />
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
+
+   
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+   
+ 
+      <link rel="stylesheet" type="text/css" href="css/uikit.min.css">
+       <link href="css/ratchet.min.css" rel="stylesheet">
+
+          <script src="js/uikit.js"></script>
+          <script src="js/ratchet.js"></script>
+             <link rel="stylesheet" type="text/css" href="css/index.css" />
+                    <script type="text/javascript" src="cordova.js"></script>
+          <!-- include summernote css/js-->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+    <title>Hello World</title>
+</head>
+
+<body>
+    <div class="login_form" style="margin:5% 10% 10% 10%;">
+    <div class="uk-panel uk-panel-box">회원가입</div>
+      <form class="input-group">
+  <div class="input-row">
+    <label>EMAIL</label>
+    <input type="text" placeholder="email" id="user_id" name="user_id">
+  </div>
+     <div class="input-row">
+    <label>전화번호</label>
+    <input type="text" placeholder="닉네임을 입력하세요." id="nick_name" name="nick_name">
+  </div>
+   <div class="input-row">
+    <label>닉네임</label>
+    <input type="text" placeholder="닉네임을 입력하세요." id="nick_name" name="nick_name">
+  </div>
+  <div class="input-row">
+    <label>비밀번호</label>
+    <input type="password" placeholder="비밀번호" id="password" name="password">
+  </div>
+   <div class="input-row">
+    <label>비밀번호확인</label>
+    <input type="password2" placeholder="비밀번호를 한번더 입력" id="password2" name="password2">
+  </div>
+<div class="input-row">
+   <span class="uk-button uk-button-success uk-width-1-1" onclick="getImage(0,'profile')">프로필 사진
+   </span>
+   
+  </div>
+
+   <div >
+    <label>프로필</label>
+   <div id="summernote"><p>Hello Summernote</p></div>
+  </div>
+
+  <span class="btn btn-primary btn-block" id="join_btn" onclick="join_press();">회원가입</span>
+</form>
+    </div>
+   <img src="c:\fakepath\20170328_121051.jpg" id="photo1">
+
+
+
+               
+
+     <script type="text/javascript" charset="utf-8" src="js/PushNotification.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+         <script type="text/javascript" src="js/camera.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+        $("#profile_photo").change( function(){
+          var file_url=$("#profile_photo").val();
+          alert(file_url);
+          $("#photo1").attr("src",file_url);
+        });
+  $(document).ready(function() {
+         $('#summernote').summernote({
+  height: 300,                 // set editor height
+  minHeight: null,             // set minimum height of editor
+  maxHeight: null,             // set maximum height of editor
+  focus: true,
+   lang: 'ko-KR' // default: 'en-US'                 // set focus to editable area after initializing summernote
+});
+    });
+              
+    </script>
+</body>
+
+</html>

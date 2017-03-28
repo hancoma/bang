@@ -50,54 +50,8 @@ var app = {
 
     onmain : function() {
 
-         var reg_id=device.uuid;
-       // 기기 번호 검출 
-          console.log('Received Event: ' + reg_id);
-
-          push = PushNotification.init({
-    android: {
-        senderID: "870999976688"
-    },
-    browser: {
-        pushServiceURL: 'http://push.api.phonegap.com/v1/push'
-    },
-    ios: {
-        alert: "true",
-        badge: "true",
-        sound: "true"
-    },
-    windows: {}
-});
-          PushNotification.hasPermission(function(data) {
-    if (data.isEnabled) {
-        console.log('isEnabled');
-    }
-});
-
-
-push.on('registration', function(data) {
-    console.log(data.registrationId);
-    json_call(data.registrationId);
-     setTimeout(function() {
-      startapp();
-      }, 1000);
-});
-
-push.on('notification', function(data) {
-  // alert(data.message);
- // display_call_info(data.message);
-  alert_msg("알람",data.message);
- 
- 
-    
-   
-});
-
-push.on('error', function(e) {
-    // e.message
-    alert_msg("경고",e.message);
-});
-
+       
+startapp();
 
   
 
@@ -105,33 +59,8 @@ push.on('error', function(e) {
     }
 
 };
-    var user_id = window.localStorage.getItem("user_id");
-    var member_srl = window.localStorage.getItem("member_srl");
 
 function startapp() {
-    console.log("회원번호"+member_srl);
-    if(!member_srl) {
-        console.log("로그인 해주세요.");
-    location.replace('login.html') ;
-    } else {
-        console.log("로그인 되었음.");
-    location.replace('main.html') ;
-        
-    }
+    location.replace('join.html') ;
 }
 
-function json_call(reg_id) {
-      var reg_id=reg_id;
-      var deviceid=device.uuid;
-       
-         $.post("http://ku4h.com/gcm_reg_app.php",
-   {
-    reg_id:reg_id,
-    deviceid:deviceid
-   },
-   function(data){
-    var data;
-    
-   //  alert("ok");
-   })
-       } 
