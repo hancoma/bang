@@ -8,7 +8,7 @@ alert('사진 등록에 실패 했습니다.');
 },{
 quality: 100,
 destinationType: navigator.camera.DestinationType.FILE_URI,
-sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
+sourceType: navigator.camera.PictureSourceType.CAMERA
 });
     }
 
@@ -46,7 +46,7 @@ function win(r) {
       var img_src="http://ku4h.com/photo/"+member_srl+"_"+add_code+".jpg";
       var file_name=member_srl+"_"+add_code+".jpg";
       console.log(img_src);
-      $("#img_board").attr("src", img_src);
+      $("#photo1").attr("src", img_src);
  
     }
 
