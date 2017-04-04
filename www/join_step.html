@@ -53,45 +53,17 @@
 
 <body>
     <div class="login_form" style="margin:5% 10% 10% 10%;">
-    <div class="uk-panel uk-panel-box">회원가입</div>
+    <div class="uk-panel uk-panel-box">사진등록</div>
       <form class="input-group">
-  <div class="input-row">
-    <label>EMAIL</label>
-    <input type="text" placeholder="email" id="join_email" name="join_email">
-  </div>
-     <div class="input-row">
-    <label>전화번호</label>
-    <input type="text" placeholder="전화번호를 입력하세요." id="join_telephone" name="join_telephone">
-  </div>
-   <div class="input-row">
-    <label>닉네임</label>
-    <input type="text" placeholder="닉네임을 입력하세요." id="nick_name" name="nick_name">
-  </div>
-  <div class="input-row">
-    <label>비밀번호</label>
-    <input type="password" placeholder="비밀번호" id="join_pw1" name="join_pw1">
-  </div>
-   <div class="input-row">
-    <label>비밀번호확인</label>
-    <input type="password2" placeholder="비밀번호를 한번더 입력" id="join_pw2" name="join_pw2">
-  </div>
-<div class="uk-width-1-1" style="height:50">
-<a href="#" class="uk-button uk-width-1-1"  onclick="getImage(0,'profile')" ><i class="uk-icon-camera-retro "></i> 프로필사진 </a>
-
-<div class="uk-width-1-1">
-  <div class="uk-cover">
-    <video class="uk-cover-object" width="" height="">
-        <source src="" type="">
-    </video>
-</div>
-
-</div>
-   
+  
+<div class="input-row">
+   <span class="uk-button uk-button-success uk-width-1-3" onclick="getImage(0,'album')">사진등록
+   </span>
    
   </div>
 
   
-  <span class="btn btn-primary btn-block" id="join_btn" onclick="save_member();">회원가입</span>
+  <span class="btn btn-primary btn-block" id="join_btn" onclick="save_pic();">다음</span>
 </form>
     </div>
   

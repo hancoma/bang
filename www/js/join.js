@@ -165,18 +165,13 @@ function save_member() {
     }
 
 
-                $.post("http://ku4h.com/join_member.php",
-               {
-                email:join_email,
-                password:join_pw1,
-                nick_name:nick_name,
-                telephone:telephone
-                   },
-               function(data){
-                console.log(data);
-                alert_msg("감사합니다.","회원가입이 완료 되었습니다.");
- 
-
-               });
+                   location.replace('join_step.html') ;
 
 }
+
+function save_pic() {
+    location.replace('join_step3.html') ;
+   } 
+   function save_contents() {
+    location.replace('login.html') ;
+   } 
