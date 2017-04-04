@@ -175,8 +175,7 @@ function save_member() {
                function(data){
                 console.log(data);
                 alert_msg("감사합니다.","회원가입이 완료 되었습니다.");
-  var modal = UIkit.modal("#join_uk_modal",{center: true});
-           modal.hide();
+ 
 
                });
 
