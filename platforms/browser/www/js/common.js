@@ -63,11 +63,14 @@ function main_show() {
    $.ajax({
             type:"GET",
             data: { member_srl : member_srl },
-            url:"http://www.ku4h.com/app_data.php",
+            url:"http://bangapp.iwinv.net/bang_list.php",
             success:function(data){
                 $("#main_contents").html(data);
             }
         })
+}
+function get_bang() {
+   $("#bang_modal").addClass('active');
 }
 function chat_show() {
   menu="chat";

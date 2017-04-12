@@ -35,7 +35,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
           document.addEventListener("backbutton", onBackKeyDown, false);
-           window.plugins.sim.getSimInfo(successCallback, errorCallback);
+         
         app.receivedEvent('deviceready');
         
        
@@ -50,54 +50,8 @@ var app = {
     onmain : function() {
     var reg_id=device.uuid;
        // 기기 번호 검출 
-
-          console.log('Received Event: ' + reg_id);
-
-          push = PushNotification.init({
-    android: {
-        senderID: "870999976688"
-    },
-    browser: {
-        pushServiceURL: 'http://push.api.phonegap.com/v1/push'
-    },
-    ios: {
-        alert: "true",
-        badge: "true",
-        sound: "true"
-    },
-    windows: {}
-});
-          PushNotification.hasPermission(function(data) {
-    if (data.isEnabled) {
-        console.log('isEnabled');
-    }
-});
-
-
-push.on('registration', function(data) {
-    console.log(data.registrationId);
-    
-     main_show();
-});
-
-push.on('notification', function(data) {
-  // alert(data.message);
- // display_call_info(data.message);
-    modal = UIkit.modal.blockUI(data.message); 
-       setTimeout(function(){ modal.hide() }, 1000)
- 
-  //alert_msg("알람",data.message);
- 
- 
-    
-   
-});
-
-push.on('error', function(e) {
-    // e.message
-    alert_msg("경고",e.message);
-});
-
+main_show();
+        
     
        
 }
@@ -106,21 +60,5 @@ push.on('error', function(e) {
 
 
  
-function successCallback(result) {
- alert_msg('전화',result.phoneNumber);
-}
- 
-function errorCallback(error) {
-  console.log(error);
-}
- 
-// check permission 
-function hasReadPermission() {
-  window.plugins.sim.hasReadPermission(successCallback, errorCallback);
-}
- 
-// request permission 
-function requestReadPermission() {
-  window.plugins.sim.requestReadPermission(successCallback, errorCallback);
-}
+
 

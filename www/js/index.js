@@ -61,6 +61,6 @@ startapp();
 };
 
 function startapp() {
-    location.replace('join.html') ;
+    location.replace('main.html') ;
 }
 
