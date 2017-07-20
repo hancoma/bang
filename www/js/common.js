@@ -82,13 +82,42 @@ function input_bang() {
 function get_juso() {
    $("#juso_modal").addClass('active');
 }
+// 기본 정보 
+function get_kind() {
+   $("#kind_modal").addClass('active');
+}
 
+function get_kind2() {
+   $("#kind2_modal").addClass('active');
+}
+
+function get_kind3() {
+   $("#kind3_modal").addClass('active');
+}
 function end_address() {
-   var address=$("#address").val();
+   var address1=$("#autocomplete").val();
   var address2=$("#address2").val();
-  $("#addr").val(address);
+
+  $("#addr1").val(address1);
   $("#addr2").val(address2);
   $("#juso_modal").removeClass('active');
+
+}
+
+function end_kind() {
+   
+  $("#kind_modal").removeClass('active');
+
+}
+function end_kind2() {
+   
+  $("#kind2_modal").removeClass('active');
+
+}
+
+function end_kind3() {
+   
+  $("#kind3_modal").removeClass('active');
 
 }
 
