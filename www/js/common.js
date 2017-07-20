@@ -82,6 +82,16 @@ function input_bang() {
 function get_juso() {
    $("#juso_modal").addClass('active');
 }
+
+function end_address() {
+   var address=$("#address").val();
+  var address2=$("#address2").val();
+  $("#addr").val(address);
+  $("#addr2").val(address2);
+  $("#juso_modal").removeClass('active');
+
+}
+
 function get_bang() {
    $("#bang_modal").addClass('active');
 }
