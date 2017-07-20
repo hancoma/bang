@@ -69,6 +69,19 @@ function main_show() {
             }
         })
 }
+function input_bang() {
+   $.ajax({
+            type:"GET",
+            data: { member_srl : member_srl },
+            url:"http://bangapp.iwinv.net/bang_input.php",
+            success:function(data){
+                $("#main_contents").html(data);
+            }
+        })
+}
+function get_juso() {
+   $("#juso_modal").addClass('active');
+}
 function get_bang() {
    $("#bang_modal").addClass('active');
 }
