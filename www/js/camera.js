@@ -15,7 +15,7 @@ sourceType: navigator.camera.PictureSourceType.CAMERA
     
 
     function uploadPhoto(imageURI) {
-        
+          var uuid=device.uuid;
          navigator.notification.activityStart("사진 등록 중", "사진 업로드 중입니다.");
         var options = new FileUploadOptions();
         options.fileKey="files";
@@ -35,49 +35,28 @@ sourceType: navigator.camera.PictureSourceType.CAMERA
         options.chunkedMode = false;
 
         var ft = new FileTransfer();
-        ft.upload(imageURI, "http://ku4h.com/upload_app_profile.php", win, fail, options);
+        ft.upload(imageURI, "http://bangapp.iwinv.net/upload_app.php", win, fail, options);
     }
 
 
 
 function win(r) {
-      
-
-      var img_src="http://ku4h.com/photo/"+member_srl+"_"+add_code+".jpg";
-      var file_name=member_srl+"_"+add_code+".jpg";
+       console.log("Code = " + r.responseCode);
+        console.log("Response = " + r.response);
+        console.log("Sent = " + r.bytesSent);
+navigator.notification.activityStop();
+var uuid=device.uuid;
+      var img_src="http://bangapp.iwinv.net/photo/"+uuid+".jpg";
+      var file_name=uuid+".jpg";
       console.log(img_src);
-      $("#photo1").attr("src", img_src);
+    //  $("#photo1").attr("src", img_src);
  
     }
 
     // 성공
 
 
-    function win(r) {
-        console.log("Code = " + r.responseCode);
-        console.log("Response = " + r.response);
-        console.log("Sent = " + r.bytesSent);
-navigator.notification.activityStop();
-if (add_mode=="photo") {
-      photo_show(add_category);
-  } else if (add_mode=="freeboard") {
-
-     freeboard_show(add_category);
-  } 
-  else if (add_mode=="qna") {
-
-     qna_show(add_category);
-  } 
-  else if (add_mode=="goods") {
-
-     goods_show(add_category);
-  } 
-
- var modal = UIkit.modal("#add_contents_uk_modal");
-    modal.hide();       
-        
-
-    }
+   
 
     function fail(error) {
         navigator.notification.activityStop();
