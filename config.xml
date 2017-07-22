@@ -2,7 +2,7 @@
   <name>다방</name>
   <description>다방</description>
   <author href="http://ku4h.com" email="ch7@daum.net">김대경</author>
-  <content src="https://getuikit.com/v2/docs/htmleditor.html"/>
+    <content src="index.html"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="android-minSdkVersion" value="14"/>
    <preference name="fullscreen" value="false" />
