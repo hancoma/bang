@@ -35,7 +35,7 @@ sourceType: navigator.camera.PictureSourceType.CAMERA
         options.chunkedMode = false;
 
         var ft = new FileTransfer();
-        ft.upload(imageURI, "http://bangapp.iwinv.net/upload_app.php", win, fail, options);
+        ft.upload(imageURI, "http://homes1004.kr/upload_bang_app.php", win, fail, options);
     }
 
 
@@ -46,9 +46,9 @@ function win(r) {
         console.log("Sent = " + r.bytesSent);
 navigator.notification.activityStop();
 var uuid=device.uuid;
-      var img_src="http://bangapp.iwinv.net/photo/"+uuid+".jpg";
+      var img_src="http://homes1004.kr/photo3/"+uuid+".jpg";
       var file_name=uuid+".jpg";
-      console.log(img_src);
+      console.log(r.response);
     //  $("#photo1").attr("src", img_src);
  
     }
