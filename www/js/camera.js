@@ -28,7 +28,7 @@ sourceType: navigator.camera.PictureSourceType.CAMERA
         params.value2 = "param";
      
         params.uuid=uuid;
-    
+        console.log(uuid);
      
 
         options.params = params;
@@ -46,7 +46,7 @@ function win(r) {
         console.log("Sent = " + r.bytesSent);
 navigator.notification.activityStop();
 var uuid=device.uuid;
-      var img_src="http://homes1004.kr/photo3/"+uuid+".jpg";
+      var img_src="http://homes1004.kr/photo3/"+r.response;
       var file_name=uuid+".jpg";
       console.log(r.response);
     //  $("#photo1").attr("src", img_src);
