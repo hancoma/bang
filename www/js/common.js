@@ -63,7 +63,7 @@ function main_show() {
    $.ajax({
             type:"GET",
             data: { member_srl : member_srl },
-            url:"http://bangapp.iwinv.net/bang_list.php",
+            url:"http://homes1004.kr/bang_list.php",
             success:function(data){
                 $("#main_contents").html(data);
             }
@@ -73,7 +73,7 @@ function input_bang() {
    $.ajax({
             type:"GET",
             data: { member_srl : member_srl },
-            url:"http://bangapp.iwinv.net/bang_input.php",
+            url:"http://homes1004.kr/bang_input.php",
             success:function(data){
                 $("#main_contents").html(data);
             }
