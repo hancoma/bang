@@ -43,18 +43,21 @@ sourceType: navigator.camera.PictureSourceType.CAMERA
 function win(r) {
        console.log("Code = " + r.responseCode);
         console.log("Response = " + r.response);
-        console.log("Sent = " + r.bytesSent);
+        console.log("Sent = " + r.bytesSent); 
 navigator.notification.activityStop();
 var uuid=device.uuid;
       var img_src="http://homes1004.kr/photo3/"+r.response;
       var file_name=uuid+".jpg";
-      console.log(r.response);
-    //  $("#photo1").attr("src", img_src);
- 
+      console.log(img_src);
+    //$("#photo1").attr("src", img_src);
+    var img="<img src='"+img_src+"' class='uk-width-1-3'>";
+     console.log(img);
+    $("#img_list").append(img);
+   
     }
 
     // 성공
-
+  
 
    
 
