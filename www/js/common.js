@@ -101,6 +101,8 @@ function end_address() {
   $("#addr1").val(address1);
   $("#addr2").val(address2);
   $("#juso_modal").removeClass('active');
+    $("#juso_icon").html("입력완료");
+    $("#juso_icon").addClass("badge-primary")
 
 }
 

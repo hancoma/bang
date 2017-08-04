@@ -4,11 +4,11 @@ function getImage() {
 
    
         navigator.camera.getPicture(uploadPhoto, function(message) {
-alert('사진 등록에 실패 했습니다.');
+// alert('사진 등록에 실패 했습니다.');
 },{
 quality: 100,
 destinationType: navigator.camera.DestinationType.FILE_URI,
-sourceType: navigator.camera.PictureSourceType.CAMERA
+sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
 });
     }
 
