@@ -53,6 +53,7 @@ var uuid=device.uuid;
     var img="<img src='"+img_src+"' class='uk-width-1-3'>";
      console.log(img);
     $("#img_list").append(img);
+    
    
     }
 

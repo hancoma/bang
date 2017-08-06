@@ -42,13 +42,13 @@
   </header>
 
   <div class="content" style="margin-top:10px;">
-    <form>
+   
   <input type="text" placeholder="매물명">
   <input type="text" placeholder="주소">
  <a href=# onclick="getImage()">사진추가</a> 
   <textarea rows="5"></textarea>
-  <button class="btn btn-positive btn-block">등록하기</button>
-</form>
+  <button class="btn btn-positive btn-block" >등록하기</button>
+
   </div>
 </div>
 
@@ -58,6 +58,14 @@
   <a class="tab-item active" id="main_icon" href="#" onclick="main_show()">
     <span class="icon icon-home"></span>
     <span class="tab-label">홈</span>
+  </a>
+    <a class="tab-item active" id="main_icon" href="#" onclick="area_show()">
+    <span class="icon icon-home"></span>
+    <span class="tab-label">지역별</span>
+  </a>
+    <a class="tab-item active" id="main_icon" href="#" onclick="subway_show()">
+    <span class="icon icon-home"></span>
+    <span class="tab-label">지하철역</span>
   </a>
   <a class="tab-item" href="#" id="board_icon" onclick="input_bang() ">
     <span class="icon icon-compose"></span>
@@ -85,7 +93,7 @@
      <script type="text/javascript" src="js/board.js"></script> 
      <script type="text/javascript" src="js/talk.js"></script> 
 
-   
+     
  
 
 
