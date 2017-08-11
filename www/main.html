@@ -32,8 +32,11 @@
 
   <h1 class="title">내방</h1>
 </header>
+<div id="map" data-uk-grid style="height:30%;">map loading...
+</div>
+<div id="main_contents" style="overflow-y: scroll; width:100%; height:100%;  padding-bottom: 100px; padding-top:0px;">
 
-<div id="main_contents" style="overflow-y: scroll; width:100%; height:100%;  padding-bottom: 100px; padding-top:50px;">
+
 </div>
 <div id="bang_modal" class="modal">
   <header class="bar bar-nav">
@@ -77,6 +80,7 @@
     <span class="tab-label">종료</span>
   </a>
 </nav>
+
      <script type="text/javascript" charset="utf-8" src="js/PushNotification.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>
@@ -92,8 +96,9 @@
      <script type="text/javascript" src="js/right_menu.js"></script>
      <script type="text/javascript" src="js/board.js"></script> 
      <script type="text/javascript" src="js/talk.js"></script> 
+      <script type="text/javascript" src="js/map.js"></script> 
 
-     
+     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIjYYnR4RImDb8X_tD1s8ud0I0KeGAKDs"></script>
  
 
 
@@ -103,5 +108,25 @@
 
 </html>
 <script>
+ var map;
+    var locations;
+    var data_app;
+     var company_name;
+    var map_kind;
+    var point_x;
+    var point_y;
+    var chicago = {lat: 41.85, lng: -87.65}; 
+    var markers = new Array();
+    var data_company=new Array();
+    var data_no=new Array();
+    var data_point_x=new Array();
+    var data_point_y=new Array();
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 5
+  });
+  }
+initMap();
  // setInterval("check_msg()", 1000);
-</script> b
+</script> 
