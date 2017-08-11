@@ -62,7 +62,7 @@
     <h1 class="title">상세 내용 보기</h1>
   </header>
 
-  <div class="content">
+  <div class="content" id="shop_contents">
     <p class="content-padded">내용</p>
   </div>
 </div>
@@ -212,6 +212,17 @@ var infowindow = new google.maps.InfoWindow();
 function shop_info(no) {
   var no=no;
    $("#shop_info_modal").addClass('active');
+   $.post("http://homes1004.kr/shop_info_app.php",
+   {
+    no:no
+    
+       },
+   function(data){
+
+$("#shop_contents").html(data);
+  
+   });
+
 }
 initMap();
 
