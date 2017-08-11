@@ -56,6 +56,18 @@
 </div>
 
 
+<div id="shop_info_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" href="#shop_info_modal"></a>
+    <h1 class="title">상세 내용 보기</h1>
+  </header>
+
+  <div class="content">
+    <p class="content-padded">내용</p>
+  </div>
+</div>
+
+
 
 <nav class="bar bar-tab bar-footer">
   <a class="tab-item active" id="main_icon" href="#" onclick="main_show()">
@@ -174,7 +186,7 @@ var infowindow = new google.maps.InfoWindow();
         return function() {
 
           
-          infowindow.setContent("<span onclick='open_shop("+data_no[i]+")'>"+data_company[i]+"</span>");
+          infowindow.setContent("<span onclick='shop_info("+data_no[i]+")'>"+data_company[i]+"</span>");
           infowindow.open(map, marker);
         }
       })(marker, i));
@@ -197,6 +209,11 @@ var infowindow = new google.maps.InfoWindow();
   map.setZoom(11);
   }
 
+function shop_info(no) {
+  var no=no;
+   $("#shop_info_modal").addClass('active');
+}
 initMap();
+
  // setInterval("check_msg()", 1000);
 </script> 
