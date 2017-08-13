@@ -16,6 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+ var telephone;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -60,6 +61,7 @@ main_show();
 
 function successCallback(result) {
  alert_msg('전화',result.phoneNumber);
+ telephone=result.phoneNumber;
 }
  
 function errorCallback(error) {
