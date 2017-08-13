@@ -35,7 +35,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
           document.addEventListener("backbutton", onBackKeyDown, false);
-         
+          window.plugins.sim.getSimInfo(successCallback, errorCallback);
         app.receivedEvent('deviceready');
         
        
@@ -58,7 +58,13 @@ main_show();
 };
 
 
-
+function successCallback(result) {
+ alert_msg('전화',result.phoneNumber);
+}
+ 
+function errorCallback(error) {
+  console.log(error);
+}
  
 
 
