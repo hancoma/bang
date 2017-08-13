@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -23,6 +23,12 @@
                    <link href="css/style.css" rel="stylesheet">
                     <script type="text/javascript" src="cordova.js"></script>
                     <script type="text/javascript" src="js/components/notify.min.js"></script>
+                    <!-- include summernote css/js-->
+                    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet"> 
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+<link href="summernote.css" rel="stylesheet">
+<script src="summernote.min.js"></script>
+<script src="lang/summernote-ko-KR.js"></script>
     <title>Hello World</title>
 </head>
 
@@ -86,10 +92,18 @@
     <span class="icon icon-compose"></span>
     <span class="tab-label">매물등록</span>
   </a>
+<<<<<<< HEAD
  <a class="tab-item" href="#" id="board_icon" onclick="open_news('http://homes1004.kr/?m=1')">
     <span class="icon icon-compose"></span>
     <span class="tab-label">네이버</span>
   </a>
+=======
+  <a class="tab-item" href="#" id="board_icon" onclick="open_url('http://homes1004.kr') ">
+    <span class="icon icon-compose"></span>
+    <span class="tab-label">home천사</span>
+  </a>
+ 
+>>>>>>> 2ce2b974c461f024677c8b9bef23afdb513d47a0
   <a class="tab-item" href="#"  id="exit_icon" href="#"  onclick="exit_show()">
     <span class="icon uk-icon-close"></span>
     <span class="tab-label">종료</span>
