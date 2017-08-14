@@ -36,7 +36,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
           document.addEventListener("backbutton", onBackKeyDown, false);
-          window.plugins.sim.getSimInfo(successCallback, errorCallback);
+        //  window.plugins.sim.getSimInfo(successCallback, errorCallback);
         app.receivedEvent('deviceready');
         
        
