@@ -4,18 +4,49 @@ function getImage() {
 
    
         navigator.camera.getPicture(uploadPhoto, function(message) {
-alert('사진 등록에 실패 했습니다.');
+// alert('사진 등록에 실패 했습니다.');
 },{
 quality: 100,
 destinationType: navigator.camera.DestinationType.FILE_URI,
-sourceType: navigator.camera.PictureSourceType.CAMERA
+sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
 });
     }
 
+    function getImage_pic() {
+ 
+
+        navigator.camera.getPicture(uploadPhoto_img, function(message) {
+// alert('사진 등록에 실패 했습니다.');
+},{
+quality: 100,
+destinationType: navigator.camera.DestinationType.FILE_URI,
+sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
+});
+    }
+
+// 이미지 암호화
+    function cameraCallback(imageData) {
+ 
+    var img="data:image/jpeg;base64," + imageData;
+    var uuid=device.uuid;
+     $.post("http://homes1004.kr/save_img_data.php",
+   {
+    uuid:uuid,
+    img:img
     
+       },
+   function(data){
+    var data=data;
+    alert(data);
+    console.log(data);
+   });
+}
+
+
+
 
     function uploadPhoto(imageURI) {
-        
+          var uuid=device.uuid;
          navigator.notification.activityStart("사진 등록 중", "사진 업로드 중입니다.");
         var options = new FileUploadOptions();
         options.fileKey="files";
@@ -28,56 +59,77 @@ sourceType: navigator.camera.PictureSourceType.CAMERA
         params.value2 = "param";
      
         params.uuid=uuid;
-    
+        console.log(uuid);
      
 
         options.params = params;
         options.chunkedMode = false;
 
         var ft = new FileTransfer();
-        ft.upload(imageURI, "http://ku4h.com/upload_app_profile.php", win, fail, options);
+        ft.upload(imageURI, "http://homes1004.kr/upload_bang_app.php", win, fail, options);
+    }
+
+
+   function uploadPhoto_img(imageURI) {
+          var uuid=device.uuid;
+         navigator.notification.activityStart("사진 등록 중", "사진선택중입니다.");
+        var options = new FileUploadOptions();
+        options.fileKey="files";
+        options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+        add_file_name=imageURI.substr(imageURI.lastIndexOf('/')+1);
+        options.mimeType="image/jpeg";
+
+        var params = new Object();
+        params.value1 = "test";
+        params.value2 = "param";
+     
+        params.uuid=uuid;
+        console.log(uuid);
+     
+
+        options.params = params;
+        options.chunkedMode = false;
+
+        var ft = new FileTransfer();
+        ft.upload(imageURI, "http://homes1004.kr/upload_img.php", win_img, fail, options);
     }
 
 
 
 function win(r) {
-      
-
-      var img_src="http://ku4h.com/photo/"+member_srl+"_"+add_code+".jpg";
-      var file_name=member_srl+"_"+add_code+".jpg";
+       console.log("Code = " + r.responseCode);
+        console.log("Response = " + r.response);
+        console.log("Sent = " + r.bytesSent); 
+navigator.notification.activityStop();
+var uuid=device.uuid;
+      var img_src="http://homes1004.kr/photo3/"+r.response;
+      var file_name=uuid+".jpg";
       console.log(img_src);
-      $("#photo1").attr("src", img_src);
- 
+    //$("#photo1").attr("src", img_src);
+    var img="<img src='"+img_src+"' class='uk-width-1-3'>";
+     console.log(img);
+    $("#img_list").append(img);
+    
+   
+    }
+
+    function win_img(r) {
+       console.log("Code = " + r.responseCode);
+        console.log("Response = " + r.response);
+        console.log("Sent = " + r.bytesSent); 
+navigator.notification.activityStop();
+var uuid=device.uuid;
+      var img_src="http://homes1004.kr/upload_img/"+r.response;
+      var file_name=uuid+".jpg";
+ ref_img.executeScript({code: "insert_img('"+img_src+"');"});
+    
+   
     }
 
     // 성공
+  
 
-
-    function win(r) {
-        console.log("Code = " + r.responseCode);
-        console.log("Response = " + r.response);
-        console.log("Sent = " + r.bytesSent);
-navigator.notification.activityStop();
-if (add_mode=="photo") {
-      photo_show(add_category);
-  } else if (add_mode=="freeboard") {
-
-     freeboard_show(add_category);
-  } 
-  else if (add_mode=="qna") {
-
-     qna_show(add_category);
-  } 
-  else if (add_mode=="goods") {
-
-     goods_show(add_category);
-  } 
-
- var modal = UIkit.modal("#add_contents_uk_modal");
-    modal.hide();       
-        
-
-    }
+   
 
     function fail(error) {
         navigator.notification.activityStop();

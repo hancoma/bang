@@ -24,6 +24,33 @@ function open_right() {
 function alertDismissed() {
     // do something
 }
+function save_room() {
+      
+   
+    
+    var params = jQuery("#room_form").serialize(); // serialize() : 입력된 모든Element(을)를 문자열의 데이터에 serialize 한다.
+    jQuery.ajax({
+        url: 'http://homes1004.kr/save_room.php',
+        type: 'POST',
+        data:params,
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8', 
+        dataType: 'html',
+        success: function (result) {
+            if (result!="ok"){
+              
+              alert(result);
+                // 데이타 성공일때 이벤트 작성
+            } else {
+              var modal = UIkit.modal("#modal_join");
+
+    modal.hide();
+              alert("감사합니다.등록 되었습니다.");
+
+            }
+         }
+    });
+
+  }
 
 function alert_msg(title,msg) {
     var title=title;
@@ -63,22 +90,73 @@ function main_show() {
    $.ajax({
             type:"GET",
             data: { member_srl : member_srl },
-            url:"http://bangapp.iwinv.net/bang_list.php",
+            url:"http://homes1004.kr/bang_list.php",
             success:function(data){
                 $("#main_contents").html(data);
             }
         })
 }
 function input_bang() {
+  var uuid=device.uuid;
    $.ajax({
             type:"GET",
-            data: { member_srl : member_srl },
-            url:"http://bangapp.iwinv.net/bang_list.php",
+            data: { uuid : uuid },
+            url:"http://homes1004.kr/bang_input.php",
             success:function(data){
                 $("#main_contents").html(data);
             }
         })
 }
+function get_juso() {
+   $("#juso_modal").addClass('active');
+}
+// 기본 정보 
+function get_kind() {
+   $("#kind_modal").addClass('active');
+}
+
+function get_kind2() {
+   $("#kind2_modal").addClass('active');
+}
+
+function get_kind3() {
+   $("#kind3_modal").addClass('active');
+}
+function end_address() {
+   var address1=$("#autocomplete").val();
+  var address2=$("#address2").val();
+
+  $("#addr1").val(address1);
+  $("#addr2").val(address2);
+  $("#juso_modal").removeClass('active');
+    $("#juso_icon").html("입력완료");
+    $("#juso_icon").addClass("badge-primary")
+
+}
+
+function end_kind() {
+   
+  $("#kind_modal").removeClass('active');
+    $("#kind_icon").html("입력완료");
+    $("#kind_icon").addClass("badge-primary")
+
+}
+function end_kind2() {
+   
+  $("#kind2_modal").removeClass('active');
+   $("#kind2_icon").html("입력완료");
+    $("#kind2_icon").addClass("badge-primary")
+
+}
+
+function end_kind3() {
+   
+  $("#kind3_modal").removeClass('active');
+   $("#kind3_icon").html("입력완료");
+    $("#kind3_icon").addClass("badge-primary")
+
+}
+
 function get_bang() {
    $("#bang_modal").addClass('active');
 }

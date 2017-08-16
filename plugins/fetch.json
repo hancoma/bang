@@ -42,7 +42,7 @@
     "cordova-plugin-console": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-console@~1.0.2"
+            "id": "cordova-plugin-console@~1.0.3"
         },
         "is_top_level": true,
         "variables": {}
@@ -82,7 +82,7 @@
     "cordova-plugin-dialogs": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-dialogs@~1.2.0"
+            "id": "cordova-plugin-dialogs@~1.2.1"
         },
         "is_top_level": true,
         "variables": {}
@@ -163,14 +163,6 @@
         "source": {
             "type": "registry",
             "id": "cordova-plugin-whitelist@~1.2.1"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "phonegap-plugin-push": {
-        "source": {
-            "type": "registry",
-            "id": "phonegap-plugin-push@1.9.2"
         },
         "is_top_level": true,
         "variables": {}
