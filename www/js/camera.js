@@ -22,7 +22,7 @@ quality: 100,
 destinationType: navigator.camera.DestinationType.FILE_URI,
 sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
 });
-    }
+    } 
 
 // 이미지 암호화
     function cameraCallback(imageData) {
