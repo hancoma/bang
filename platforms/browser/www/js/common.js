@@ -163,13 +163,15 @@ function get_bang() {
 function chat_show() {
   menu="chat";
   console.log("대화방");
+  $("#map").hide();
+  $("#main_contents").hide();
   $("#chat_icon").addClass('active');
   $.ajax({
             type:"GET",
             data: { member_srl : member_srl },
             url:"http://www.ku4h.com/chat_room_list_app.php",
             success:function(data){
-                $("#main_contents").html(data);
+                $("#chat_contents").html(data);
             }
         })
 }
