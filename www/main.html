@@ -44,7 +44,34 @@
 <div id="chat_contents" style="overflow-y: scroll; width:100%; height:100%;  padding-bottom: 100px; padding-top:50px;">
 
 
-</div>
+</div><div id="make_chat_uk_modal" class="uk-modal" aria-hidden="true" style="display: none; overflow-y: scroll;">
+                                <div class="uk-modal-dialog">
+                                    <button type="button" class="uk-modal-close uk-close"></button>
+                                    <div class="uk-modal-header">
+                                        <h2 id="member_modal_title">방만들기</h2>
+                                    </div>
+                                    <p id="member_modal_contents">
+                                    <form class="uk-form">
+
+    <fieldset data-uk-margin>
+        <legend>방정보를 입력하세요.</legend>
+        <input type="text" name="chat_room_title" id="chat_room_title" placeholder="방 제목을 입력하세요.">
+        
+        <select name="chat_mode" id="chat_mode">
+            <option value="2">비공개</option>
+            <option value="1">공개</option>
+        </select>
+        
+    </fieldset>
+
+</form>
+                                    </p>
+                                    <div class="uk-modal-footer uk-text-right" id="member_modal_btn">
+                                   <button type="button" class="uk-button uk-modal-close">닫기</button> 
+                                    <a href=# class="uk-button uk-button-success" onclick="make_chat_room()">방만들기</a> 
+                                    </div>
+                                </div>
+                            </div>
 <div id="bang_modal" class="modal">
   <header class="bar bar-nav">
     <a class="icon icon-close pull-right" href="#bang_modal"></a>
