@@ -169,7 +169,7 @@ function chat_show() {
   $.ajax({
             type:"GET",
             data: { member_srl : member_srl },
-            url:"http://www.homes1004.kr/chat_room_list_app.php",
+            url:"http://www.homes1004.kr/chat/chat_room_list_app.php",
             success:function(data){
                 $("#chat_contents").html(data);
             }
