@@ -161,6 +161,7 @@ function get_bang() {
    $("#bang_modal").addClass('active');
 }
 function chat_show() {
+  var uuid=device.uuid;
   menu="chat";
   console.log("대화방");
   $("#map").hide();
@@ -168,7 +169,7 @@ function chat_show() {
   $("#chat_icon").addClass('active');
   $.ajax({
             type:"GET",
-            data: { member_srl : member_srl },
+            data: { uuid : uuid },
             url:"http://www.homes1004.kr/chat/chat_room_list_app.php",
             success:function(data){
                 $("#chat_contents").html(data);

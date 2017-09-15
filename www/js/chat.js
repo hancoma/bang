@@ -94,6 +94,7 @@ $("#chat_room_modal").addClass('active');
     
        },
    function(data){
+  console.log(data);
 $("#chat_body").html(data);
 console.log(data);
 chat_page_top();
@@ -233,7 +234,7 @@ function re_open_chat_room () {
  $.post("http://homes1004.kr/chat/chat_list_app.php",
    {
     no:no,
-    member_srl:member_srl,
+    
     uuid:uuid
     
        },
