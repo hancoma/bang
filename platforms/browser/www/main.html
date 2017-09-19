@@ -94,6 +94,15 @@
 
     
     <h1 class="title">대화방</h1>
+    <div>
+     <select name="to_lan" id="to_lan" onchange="re_open_chat_room();">
+        <option value="all">all</option>
+        <option value="en">english</option>
+        <option value="ja">japan</option>
+        <option value="cn">china</option>
+        
+     </select>
+    </div>
   </header>
   
   <div id="chat_member_modal" class="uk-modal" aria-hidden="true" style="display: none; overflow-y: scroll;">

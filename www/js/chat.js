@@ -166,6 +166,7 @@ check_new_chat();
   var last_no=$("#last_no").val();
   var room_no=$("#room_no").val();
   var check_chat=$("#check_chat").val();
+
   $("#check_chat").val("t");
   if (check_chat=="t") {
     exit;
@@ -230,12 +231,14 @@ $('.content').scrollTop(htop);
 function re_open_chat_room () {
   var no=$("#room_no").val();
   var uuid=device.uuid;
+  var to_lan=$("#to_lan").val();
    console.log(member_srl);
  $.post("http://homes1004.kr/chat/chat_list_app.php",
    {
     no:no,
     
-    uuid:uuid
+    uuid:uuid,
+    to_lan:to_lan
     
        },
    function(data){
