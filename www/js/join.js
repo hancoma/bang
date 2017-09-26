@@ -41,7 +41,7 @@ var app = {
       
 
         console.log('Received Event: ' + id);
-        window.plugins.sim.getSimInfo(successCallback, errorCallback);
+    
         app.onmain();
     },
     onmain : function() {
@@ -90,7 +90,7 @@ function login_press(user_id,password) {
     var user_id=user_id;
     var password=password;
 
-     $.post("http://ku4h.com/login_check.php",
+     $.post("http://homes1004.kr/login_check.php",
    {
     user_id:user_id,
     password:password
@@ -105,7 +105,7 @@ function login_press(user_id,password) {
         window.localStorage.setItem("user_id", user_id);
         user_id = window.localStorage.getItem("user_id");
         console.log(user_id);
-               $.post("http://ku4h.com/login_check_uid.php",
+               $.post("http://homes1004.kr/login_check_uid.php",
                {
                 user_id:user_id
                    },
@@ -126,10 +126,10 @@ function login_press(user_id,password) {
    });
 }
 
-function join_press() {
-
-    var modal = UIkit.modal("#join_uk_modal",{center: true});
-           modal.show();
+function join_popup() {
+    var url="http://homes1004.kr/xe/index.php?act=dispMemberSignUpForm";
+        open_url(url);
+        
 }
 function save_member() {
     var join_email=$("#join_email").val();

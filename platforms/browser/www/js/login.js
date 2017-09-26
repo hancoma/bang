@@ -124,7 +124,12 @@ function login_press(user_id,password) {
     } 
    });
 }
-
+function join_popup() {
+  
+    var url="http://homes1004.kr/xe/index.php?act=dispMemberSignUpForm";
+  var ref_join = cordova.InAppBrowser.open(url, '_self', 'location=no');
+        
+}
 function join_press() {
 
     var modal = UIkit.modal("#join_uk_modal",{center: true});

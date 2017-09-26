@@ -16,9 +16,17 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+  window.localStorage.removeItem("user_id");
+  window.localStorage.clear();
+    window.localStorage.removeItem("member_srl");
+  window.localStorage.clear();
+var user_id = window.localStorage.getItem("user_id");
+var member_srl = window.localStorage.getItem("member_srl");
+var ref_join;
 var app = {
     // Application Constructor
     initialize: function() {
+
         this.bindEvents();
     },
     // Bind Event Listeners
@@ -45,13 +53,13 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+
            app.onmain();
     },
 
     onmain : function() {
 
-       
-startapp();
+start_app();
 
   
 
@@ -60,7 +68,15 @@ startapp();
 
 };
 
-function startapp() {
+function start_app() {
+     if(!member_srl) {
+        console.log("로그인 해주세요.");
+    location.replace('login.html') ;
+    } else {
+        alert(member_srl);
+        console.log("로그인 되었음.");
     location.replace('main.html') ;
+        
+    }
 }
-
+ 
