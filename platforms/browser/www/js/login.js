@@ -89,7 +89,7 @@ function login_press(user_id,password) {
     var user_id=user_id;
     var password=password;
 
-     $.post("http://ku4h.com/login_check.php",
+     $.post("http://homes1004.kr/login_check.php",
    {
     user_id:user_id,
     password:password
@@ -104,7 +104,7 @@ function login_press(user_id,password) {
         window.localStorage.setItem("user_id", user_id);
         user_id = window.localStorage.getItem("user_id");
         console.log(user_id);
-               $.post("http://ku4h.com/login_check_uid.php",
+               $.post("http://homes1004.kr/login_check_uid.php",
                {
                 user_id:user_id
                    },
@@ -125,9 +125,17 @@ function login_press(user_id,password) {
    });
 }
 function join_popup() {
-  
+
     var url="http://homes1004.kr/xe/index.php?act=dispMemberSignUpForm";
-  var ref_join = cordova.InAppBrowser.open(url, '_self', 'location=no');
+  var ref_join = cordova.InAppBrowser.open(url, '_blank', 'location=no');
+   ref_join.addEventListener('loadstop', function(event) {        
+    if (event.url.match("member_join_end")) {
+        alert("회원가입 되었습니다.");
+        ref_join.close();
+       
+    }
+  });
+    
         
 }
 function join_press() {
@@ -169,7 +177,7 @@ function save_member() {
     }
 
 
-                $.post("http://ku4h.com/join_member.php",
+                $.post("http://homes1004.kr/join_member.php",
                {
                 email:join_email,
                 password:join_pw1,
