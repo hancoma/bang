@@ -10,7 +10,7 @@ function save_chat() {
 		exit;
 	}
 
-		$.post("http://ku4h.com/chat_save_app.php",
+		$.post("http://homes1004.kr/chat/chat_save_app.php",
    {
    	room_no:room_no,
    	memberuid:memberuid,
@@ -46,7 +46,7 @@ function make_chat_room() {
   if (mode==2) {
    alert_msg("알림","비공개방은 대화상태를 초대해야만 대화가 가능합니다.");
   }
-  $.post("http://ku4h.com/make_room_app.php",
+  $.post("http://homes1004.kr/chat/make_room_app.php",
    {
     title:title,
     member_srl:member_srl,
@@ -66,7 +66,7 @@ function chat_room_make(title,member_srl,uuid){
   var title=title;
   var member_srl=member_srl;
   var uuid=uuid;
-    $.post("http://ku4h.com/make_room.php",
+    $.post("http://homes1004.kr/chat/make_room.php",
    {
     title:title,
     member_srl:member_srl,
@@ -86,7 +86,7 @@ $("#chat_room_modal").addClass('active');
   var no=no;
   var uuid=device.uuid;
    console.log(member_srl);
- $.post("http://ku4h.com/chat_list_app.php",
+ $.post("http://homes1004.kr/chat/chat_list_app.php",
    {
     no:no,
     member_srl:member_srl,
@@ -94,6 +94,7 @@ $("#chat_room_modal").addClass('active');
     
        },
    function(data){
+  console.log(data);
 $("#chat_body").html(data);
 console.log(data);
 chat_page_top();
@@ -122,7 +123,7 @@ function save_chat() {
   }
 
 
-    $.post("http://ku4h.com/chat_save_app.php",
+    $.post("http://homes1004.kr/chat/chat_save_app.php",
    {
     room_no:room_no,
     uuid:uuid,
@@ -165,6 +166,7 @@ check_new_chat();
   var last_no=$("#last_no").val();
   var room_no=$("#room_no").val();
   var check_chat=$("#check_chat").val();
+
   $("#check_chat").val("t");
   if (check_chat=="t") {
     exit;
@@ -172,7 +174,7 @@ check_new_chat();
   }
 
   console.log(last_no+" "+room_no+" "+check_chat); 
-   $.post("http://ku4h.com/check_new_chat_no_app.php",
+   $.post("http://homes1004.kr/chat/check_new_chat_no_app.php",
    {
     
     last_no:last_no,
@@ -203,7 +205,7 @@ function reload_chat(room_no,last_no) {
   var last_no=last_no;
   var uuid=device.uuid;
   console.log('last_no'+last_no+" "+room_no);
-   $.post("http://ku4h.com/check_list_app.php",
+   $.post("http://homes1004.kr/chat/check_list_app.php",
    {
     
     last_no:last_no,
@@ -229,12 +231,14 @@ $('.content').scrollTop(htop);
 function re_open_chat_room () {
   var no=$("#room_no").val();
   var uuid=device.uuid;
+  var to_lan=$("#to_lan").val();
    console.log(member_srl);
- $.post("http://ku4h.com/chat_list_app.php",
+ $.post("http://homes1004.kr/chat/chat_list_app.php",
    {
     no:no,
-    member_srl:member_srl,
-    uuid:uuid
+    
+    uuid:uuid,
+    to_lan:to_lan
     
        },
    function(data){
@@ -274,7 +278,7 @@ function delete_chat(room_no,no) {
 
 function delete_chat_go(no) {
   var no=no;
-  $.post("http://ku4h.com/delete_chat.php",
+  $.post("http://homes1004.kr/chat/delete_chat.php",
    {
    
     no:no

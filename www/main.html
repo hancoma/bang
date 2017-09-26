@@ -88,7 +88,77 @@
 
   </div>
 </div>
+<div id="chat_room_modal" class="modal">
+  <header class="bar bar-nav">
+    <a data-uk-modal="{target:'#chat_setup_modal'}" class="icon icon-more-vertical pull-right"></a>
 
+    
+    <h1 class="title">대화방</h1>
+    <div>
+     <select name="to_lan" id="to_lan" onchange="re_open_chat_room();">
+        <option value="all">all</option>
+        <option value="en">english</option>
+        <option value="ja">japan</option>
+        <option value="cn">china</option>
+        
+     </select>
+    </div>
+  </header>
+  
+  <div id="chat_member_modal" class="uk-modal" aria-hidden="true" style="display: none; overflow-y: scroll;">
+                                <div class="uk-modal-dialog">
+                                    <button type="button" class="uk-modal-close uk-close"></button>
+                                    <div class="uk-modal-header">
+                                        <h2>채팅방 참여자</h2>
+                                    </div>
+                                    <p id="chat_member_contents">
+                                      
+                                    </p>
+                                    <div class="uk-modal-footer uk-text-right">
+                                        <button type="button" class="uk-modal-close uk-button">닫기</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+<div id="chat_setup_modal" class="uk-modal" aria-hidden="true" style="display: none; overflow-y: scroll;">
+                                <div class="uk-modal-dialog">
+                                    <button type="button" class="uk-modal-close uk-close"></button>
+                                    <div class="uk-modal-header">
+                                        <h2>채팅방</h2>
+                                    </div>
+                                    <p id="chat_setup_contents">
+                                      <div class="uk-width-1-1 uk-button" onclick='chat_member_list()'>참여자목록</div>
+                                      <div class="uk-width-1-1 uk-button" onclick='find_member()'>초대하기</div>
+                                      <div class="uk-width-1-1 uk-button" onclick="delete_chat_room()" id="delete_chat_room" >대화방삭제</div>
+                                      <div class="uk-width-1-1 uk-button" onclick="close_chat_room()">나가기</div>
+                                    </p>
+                                    <div class="uk-modal-footer uk-text-right">
+                                        <button type="button" class="uk-modal-close uk-button">닫기</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+  <div class="content" style="background-color: #80D5FD;">
+    <div class="uk-grid uk-grid-small" id="chat_body" style="margin-bottom:40px;">
+    
+    
+    
+    </div> <div style="height: 50px;">
+ </div>
+
+</div><nav class="bar bar-tab">
+  <div class="uk-grid" style="line-height: 40px; width:100%;">
+    <div class="uk-width-7-10 uk-text-center">
+ <input type="hidden" name="room_no" value="" id="room_no">
+ <textarea class="form-control" placeholder="MESSAGE" id="chat_msg" style="margin-left:10px;" onclick="re_open_chat_room();" cols="30" rows="2"></textarea>
+        
+        </div>
+        <div class="uk-width-3-10 uk-text-right">
+      <a href="#" class="uk-button uk-button-danger uk-button-small" id="send_btn" onclick="save_chat();">전송</a><span class="uk-button uk-button-success uk-button-small" onclick="getImage('1','chat');"><i class="uk-icon-file-image-o"></i></span>
+      </div>
+  </div>
+  </nav>
+  </div> 
 
 <div id="shop_info_modal" class="modal">
   <header class="bar bar-nav">
