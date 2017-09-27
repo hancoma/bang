@@ -174,23 +174,11 @@
 
 
 <nav class="bar bar-tab bar-footer">
-  <a class="tab-item active" id="main_icon" href="#" onclick="main_show()">
+  <a class="tab-item active" id="main_icon" href="#" onclick="chat_show()">
     <span class="icon icon-home"></span>
     <span class="tab-label">홈</span>
   </a>
-    <a class="tab-item active" id="main_icon" href="#" onclick="area_show()">
-    <span class="icon icon-home"></span>
-    <span class="tab-label">지역별</span>
-  </a>
-    <a class="tab-item active" id="main_icon" href="#" onclick="subway_show()">
-    <span class="icon icon-home"></span>
-    <span class="tab-label">지하철역</span>
-  </a>
-  <a class="tab-item" href="#" id="board_icon" onclick="input_bang() ">
-    <span class="icon icon-compose"></span>
-    <span class="tab-label">매물등록</span>
-  </a>
-
+ 
  <a class="tab-item" href="#" id="board_icon" onclick="chat_show()">
     <span class="icon uk-icon-wechat"></span>
     <span class="tab-label">TALK</span>
@@ -235,111 +223,7 @@
 
 </html>
 <script>
- var map;
-    var locations;
-    var data_app;
-     var company_name;
-    var map_kind;
-    var point_x;
-    var point_y;
-    var chicago = {lat: 41.85, lng: -87.65}; 
-    var markers = new Array();
-    var data_company=new Array();
-    var data_no=new Array();
-    var data_point_x=new Array();
-    var data_point_y=new Array();
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 5
-  });
 
-  $.ajax({
- type: "GET",
- url: "http://homes1004.kr/shop_json_app.php",
- crossDomain: true,
- cache: false,
- success: function(result){
- var result=$.parseJSON(result);
-
- $.each(result, function(i, field){
-   data_company.push(field.title);
-   data_no.push(field.no);
-   data_point_y.push(field.point_y);
-   data_point_x.push(field.point_x);
-
- 
-
- });
- 
-
- marker_load();
-
-
-
- }});
-
-  }
-
-  function marker_load() {
-
-
-  
-var infowindow = new google.maps.InfoWindow();
-      var marker, i;
-  
-    for (i = 0; i < data_no.length; i++) { 
-     
-       
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(data_point_x[i], data_point_y[i]),
-        map: map
-     });
-       move_map(data_point_x[i],data_point_y[i]);
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-
-          
-          infowindow.setContent("<span onclick='shop_info("+data_no[i]+")'>"+data_company[i]+"</span>");
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-        markers.push(marker);
-    }
-    var markerClusterer = new MarkerClusterer(map, markers, {
-          maxZoom: 16,
-          gridSize: 50,
-          imagePath: './images/m'
-});
-
-}
-
-
-  function move_map(x,y) {
-      var x=x;
-      var y=y;
-      var darwin = new google.maps.LatLng(x, y);
-  map.setCenter(darwin);
-  map.setZoom(11);
-  }
-
-function shop_info(no) {
-  var no=no;
-   $("#shop_info_modal").addClass('active');
-   $.post("http://homes1004.kr/shop_info_app.php",
-   {
-    no:no
-    
-       },
-   function(data){
-
-$("#shop_contents").html(data);
-  
-   });
-
-}
-initMap();
 
  // setInterval("check_msg()", 1000);
 </script> 
