@@ -53,10 +53,8 @@ var app = {
 
 $("#find_pw_btn").click(
     function() {
-
-        var modal = UIkit.modal("#find_pw_uk_modal",{center: true});
-           modal.show();
-
+      find_pw();
+       
 
     })
 $("#find_pw_submit").click(
@@ -138,6 +136,21 @@ function join_popup() {
     
         
 }
+
+function find_pw() {
+
+    var url="http://homes1004.kr/xe/index.php?mid=index&act=dispMemberFindAccount&m=1";
+  var ref_find_pw = cordova.InAppBrowser.open(url, '_blank', 'location=no');
+   ref_find_pw.addEventListener('loadstop', function(event) {        
+    if (event.url.match("end_find")) {
+        ref_find_pw.close();
+       
+    }
+  });
+    
+        
+}
+
 function join_press() {
 
     var modal = UIkit.modal("#join_uk_modal",{center: true});
