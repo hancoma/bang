@@ -177,8 +177,28 @@
   </header>
 
   <div class="content" id="trans_contents">
-    <p class="content-padded">내용</p>
+    
+    <p class="content-padded">
+      <textarea name="trans_contents_box" id="trans_contents_box" cols="30" rows="10" class="uk-width-1-1" style="height:30%;"></textarea>
+      <select id="trans_language" name="trans_language" class="uk-width-1-4">
+      <option value="ko">KOREA</option>
+      <option value="en">ENGLISH</option>
+      <option value="zh-CN">CHINA</option>
+      <option value="ja">JAPAN</option>
+    </select> >
+    <select id="trans_language2" name="trans_language2" class="uk-width-1-4">
+      <option value="ko">KOREA</option>
+      <option value="en">ENGLISH</option>
+      <option value="zh-CN">CHINA</option>
+      <option value="ja">JAPAN</option>
+    </select>
+    <a href=# class="uk-button uk-button-success uk-width-1-4"  id="trans_btn" onclick="trans_btn();">
+  번역하기
+</a>
+    <textarea name="trans_contents_box2" id="trans_contents_box2" cols="30" rows="10" class="uk-width-1-1" style="height:30%;"></textarea>
+  </p>
   </div>
+
 </div>
 
 <nav class="bar bar-tab bar-footer">

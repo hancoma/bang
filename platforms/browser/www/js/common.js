@@ -28,6 +28,23 @@ function open_right() {
 function alertDismissed() {
     // do something
 }
+function trans_btn() {
+  var trans_contents=$("#trans_contents_box").val();
+  var trans_language=$("#trans_language").val();
+  var trans_language2=$("#trans_language2").val();
+  
+  console.log(trans_contents);
+  $.post("http://homes1004.kr/trans_app.php",
+   {
+    trans_contents:trans_contents,
+    trans_language:trans_language,
+    trans_language2:trans_language2
+    
+       },
+   function(data){
+$("#trans_contents_box2").val(data);
+   });
+}
 function save_room() {
       
    
