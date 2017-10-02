@@ -1,10 +1,14 @@
 var user_id = window.localStorage.getItem("user_id");
 var member_srl = window.localStorage.getItem("member_srl");
+var language = window.localStorage.getItem("language");
 var uuid=device.uuid;
 var basic_url="http://ku4h.com/";
 var room_no=0;
 var menu;
-
+function trans_show() {
+  
+    $("#trans_modal").addClass('active');
+}
 function open_url(url) {
   var url=url
   var ref = cordova.InAppBrowser.open(url, '_self', 'location=no');

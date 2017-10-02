@@ -18,10 +18,13 @@
  */
   window.localStorage.removeItem("user_id");
   window.localStorage.clear();
-    window.localStorage.removeItem("member_srl");
+  window.localStorage.removeItem("member_srl");
+  window.localStorage.clear();
+  window.localStorage.removeItem("language");
   window.localStorage.clear();
 var user_id = window.localStorage.getItem("user_id");
 var member_srl = window.localStorage.getItem("member_srl");
+var language= window.localStorage.getItem("language");
 var ref_join;
 var app = {
     // Application Constructor
@@ -73,7 +76,7 @@ function start_app() {
         console.log("로그인 해주세요.");
     location.replace('login.html') ;
     } else {
-        alert(member_srl);
+     
         console.log("로그인 되었음.");
     location.replace('main.html') ;
         

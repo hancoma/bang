@@ -33,7 +33,7 @@
 <header class="bar bar-nav">
  <a class="icon icon-gear pull-right"  onclick="open_right();"></a>
 
-  <h1 class="title">내방</h1>
+  <h1 class="title">유지텔 UGTel</h1>
 </header>
 
 <div id="main_contents" style="overflow-y: scroll; width:100%; height:100%;  padding-bottom: 100px; padding-top:0px;">
@@ -170,7 +170,16 @@
   </div>
 </div>
 
+<div id="trans_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" href="#trans_modal"></a>
+    <h1 class="title">번역기</h1>
+  </header>
 
+  <div class="content" id="trans_contents">
+    <p class="content-padded">내용</p>
+  </div>
+</div>
 
 <nav class="bar bar-tab bar-footer">
   <a class="tab-item active" id="main_icon" href="#" onclick="chat_show()">
@@ -182,7 +191,10 @@
     <span class="icon uk-icon-wechat"></span>
     <span class="tab-label">TALK</span>
   </a>
-
+  <a class="tab-item" href="#" id="board_icon" onclick="trans_show()">
+    <span class="icon icon-compose"></span>
+    <span class="tab-label">번역기</span>
+  </a>
   <a class="tab-item" href="#" id="board_icon" onclick="open_url('http://homes1004.kr') ">
     <span class="icon icon-compose"></span>
     <span class="tab-label">home천사</span>

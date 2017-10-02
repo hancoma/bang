@@ -16,6 +16,13 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+  window.localStorage.removeItem("user_id");
+  window.localStorage.clear();
+  window.localStorage.removeItem("member_srl");
+  window.localStorage.clear();
+  window.localStorage.removeItem("language");
+  window.localStorage.clear();
+  
 var app = {
     // Application Constructor
     initialize: function() {
@@ -69,6 +76,8 @@ $("#login_btn").click(
     function() {
     var user_id=$("#user_id").val();
     var password=$("#password").val();
+    var language=$("#language").val();
+
     if (!user_id) {
         alert_msg("LOGIN","메일을 입력하세요."); 
         
@@ -79,13 +88,16 @@ $("#login_btn").click(
       
         exit;
     }
-    login_press(user_id,password);
+    login_press(user_id,password,language);
 
     })
 
-function login_press(user_id,password) {
+function login_press(user_id,password,language) {
     var user_id=user_id;
     var password=password;
+    var language=language;
+    window.localStorage.setItem("language", language);
+
 
      $.post("http://homes1004.kr/login_check.php",
    {
