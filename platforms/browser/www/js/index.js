@@ -16,12 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-  window.localStorage.removeItem("user_id");
-  window.localStorage.clear();
-  window.localStorage.removeItem("member_srl");
-  window.localStorage.clear();
-  window.localStorage.removeItem("language");
-  window.localStorage.clear();
+  
 var user_id = window.localStorage.getItem("user_id");
 var member_srl = window.localStorage.getItem("member_srl");
 var language= window.localStorage.getItem("language");

@@ -17,6 +17,9 @@
  * under the License.
  */
  var telephone;
+ var user_id = window.localStorage.getItem("user_id");
+var member_srl = window.localStorage.getItem("member_srl");
+var language= window.localStorage.getItem("language");
 var app = {
     // Application Constructor
     initialize: function() {
