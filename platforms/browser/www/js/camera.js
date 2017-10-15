@@ -134,10 +134,10 @@ sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
 
 
 function win_trans(r) {
+
 navigator.notification.activityStop();
-      console.log(r);
-    //$("#photo1").attr("src", img_src);
-   
+console.log(r.response);
+      img_trans_show(r.response);
 }
 function win(r) {
        console.log("Code = " + r.responseCode);

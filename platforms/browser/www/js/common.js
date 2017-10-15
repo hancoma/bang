@@ -9,6 +9,14 @@ function trans_show() {
   
     $("#trans_modal").addClass('active');
 }
+
+function img_trans_show(data) {
+    var data=data;
+    $("#trans_modal").addClass('active');
+    $("#trans_contents_box").html(data);
+
+}
+
 function open_url(url) {
   var url=url
   var ref = cordova.InAppBrowser.open(url, '_self', 'location=no');
