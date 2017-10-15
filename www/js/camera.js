@@ -1,4 +1,17 @@
 
+function getImage_trans() {
+ 
+
+   
+        navigator.camera.getPicture(uploadPhoto_trans, function(message) {
+// alert('사진 등록에 실패 했습니다.');
+},{
+quality: 100,
+destinationType: navigator.camera.DestinationType.FILE_URI,
+sourceType: navigator.camera.PictureSourceType.CAMERA
+});
+    }
+
 function getImage() {
  
 
@@ -69,6 +82,31 @@ sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
         ft.upload(imageURI, "http://homes1004.kr/upload_bang_app.php", win, fail, options);
     }
 
+     function uploadPhoto_trans(imageURI) {
+          var uuid=device.uuid;
+         navigator.notification.activityStart("분석중", "사진을분석중입니다..");
+        var options = new FileUploadOptions();
+        options.fileKey="files";
+        options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+        add_file_name=imageURI.substr(imageURI.lastIndexOf('/')+1);
+        options.mimeType="image/jpeg";
+
+        var params = new Object();
+        params.value1 = "test";
+        params.value2 = "param";
+     
+        params.uuid=uuid;
+        console.log(uuid);
+     
+
+        options.params = params;
+        options.chunkedMode = false;
+
+        var ft = new FileTransfer();
+        ft.upload(imageURI, "http://homes1004.kr/upload_trans_app.php", win_trans, fail, options);
+    }
+
+
 
    function uploadPhoto_img(imageURI) {
           var uuid=device.uuid;
@@ -95,7 +133,12 @@ sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
     }
 
 
-
+function win_trans(r) {
+navigator.notification.activityStop();
+      console.log(r);
+    //$("#photo1").attr("src", img_src);
+   
+}
 function win(r) {
        console.log("Code = " + r.responseCode);
         console.log("Response = " + r.response);
