@@ -1,4 +1,4 @@
-﻿<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.ugtel.hancoma" version="1.1.6">
+﻿<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.ugtel.hancoma" version="1.1.7">
   <name>유지텔</name>
   <description>유지텔</description>
   <author href="http://ku4h.com" email="ch7@daum.net">김대경</author>
