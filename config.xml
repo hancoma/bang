@@ -1,4 +1,4 @@
-﻿<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.ugtel.hancoma" version="1.1.7">
+﻿<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.ugtel.hancoma" version="1.1.8">
   <name>유지텔</name>
   <description>유지텔</description>
   <author href="http://ku4h.com" email="ch7@daum.net">김대경</author>
@@ -9,7 +9,7 @@
    <preference name="android-windowSoftInputMode" value="adjustResize"></preference>
   <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1"/>
   <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1"/>
-  <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.2.0"/>
+  <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.4.3"/>
   <plugin name="cordova-plugin-console" source="npm" spec="~1.0.3"/>
   <plugin name="cordova-plugin-contacts" source="npm" spec="~2.0.1"/>
   <plugin name="cordova-plugin-device" source="npm" spec="~1.1.1"/>
