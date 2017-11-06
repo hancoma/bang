@@ -38,7 +38,7 @@ function open_left() {
 
 function open_right() {
     UIkit.offcanvas.show('#offcanvas-right');
-    load_right();
+    //load_right();
 }
 
 // msg 
