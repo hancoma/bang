@@ -45,7 +45,7 @@ window.plugins.sim.getSimInfo(successCallback, errorCallback);
 }
 
 function successCallback(result) {
-  alert(result);
+  alert(result.phoneNumber);
 }
 
 function errorCallback(error) {
