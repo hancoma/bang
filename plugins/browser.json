@@ -66,6 +66,9 @@
         },
         "cordova-plugin-sim": {
             "PACKAGE_NAME": "com.bang.hancoma"
+        },
+        "cordova-plugin-sms": {
+            "PACKAGE_NAME": "com.ugtel.hancoma"
         }
     },
     "dependent_plugins": {
