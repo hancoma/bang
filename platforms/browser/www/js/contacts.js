@@ -1,13 +1,28 @@
 function onSuccess_contacts(contacts) {
+ console.log(contacts.length);
+    for (var i=0; i<contacts.length; i++)
+        {
+              
+               console.log("Name:" + contacts[i].displayName + "\n"+
+                         "Birthday:"+ contacts[i].birthday+ "\n")
+if (contacts[i].emails) {                        
+for (var j=0; j<contacts[i].emails.length; j++) {
+                               console.log("Type: " + contacts[i].emails[j].type + "\n" +
+                                         "Value: "  + contacts[i].emails[j].value );
+                        }
+ 
+    
+ } 
 
-    for (var i = 0; i < contacts.length; i++) {
-        console.log("Formatted: "  + contacts[i].name.formatted       + "\n" +
-            "Family Name: "  + contacts[i].name.familyName      + "\n" +
-            "Given Name: "   + contacts[i].name.givenName       + "\n" +
-            "Middle Name: "  + contacts[i].name.middleName      + "\n" +
-            "Suffix: "       + contacts[i].name.honorificSuffix + "\n" +
-            "Prefix: "       + contacts[i].name.honorificSuffix);
-    }
+if (contacts[i].phoneNumbers) {                        
+for (var j=0; j<contacts[i].phoneNumbers.length; j++) {
+                               console.log("Type: " + contacts[i].phoneNumbers[j].type + "\n" +
+                                         "Value: "  + contacts[i].phoneNumbers[j].value );
+                        }
+ 
+    
+ }  
+}
 };
  
 function onError_contacts(contactError) {
@@ -19,6 +34,6 @@ function address_list() {
   var options = new ContactFindOptions();
 options.filter = "";
 options.multiple = true;
-filter = ["displayName", "name"];
+filter = ["*"];
 navigator.contacts.find(filter, onSuccess_contacts, onError_contacts, options);
 }
