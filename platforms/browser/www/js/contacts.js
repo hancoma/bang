@@ -45,11 +45,11 @@ window.plugins.sim.getSimInfo(successCallback, errorCallback);
 }
 
 function successCallback(result) {
-  console.log(result);
+  alert(result);
 }
 
 function errorCallback(error) {
-  console.log(error);
+  alert(error);
 }
 
 
