@@ -1,28 +1,45 @@
 function onSuccess_contacts(contacts) {
  console.log(contacts.length);
+ 
+ var list;
+ var email;    
+ var name;
+ var telephone;
     for (var i=0; i<contacts.length; i++)
         {
-              
-               console.log("Name:" + contacts[i].displayName + "\n"+
-                         "Birthday:"+ contacts[i].birthday)
+
+     name=contacts[i].displayName;
+     email="";
+     telephone="";
+     
+     
 if (contacts[i].emails) {                        
 for (var j=0; j<contacts[i].emails.length; j++) {
-                               console.log("Type: " + contacts[i].emails[j].type + "\n" +
-                                         "Value: "  + contacts[i].emails[j].value );
-                        }
- 
-    
+    email=email+contacts[i].emails[j].value+"\n";
+    }
  } 
+  
 
 if (contacts[i].phoneNumbers) {                        
 for (var j=0; j<contacts[i].phoneNumbers.length; j++) {
-                               console.log("Type: " + contacts[i].phoneNumbers[j].type + "\n" +
-                                         "Value: "  + contacts[i].phoneNumbers[j].value );
-                        }
+    telephone=telephone+contacts[i].phoneNumbers[j].value+"\n";
+    }
+ }
+ if (name) {
+        if (telephone) {
+ list="<li class='table-view-cell'><a class='navigate-right'>"+name+"\n"+email+"\n"+telephone+"</li>";
+$( "#contacts_list" ).append( list );
+    }
+    }
+
+
+  
  
-    
- }  
 }
+
+  
+ 
+
 };
  
 function onError_contacts(contactError) {
@@ -35,30 +52,8 @@ function address_list() {
 options.filter = "";
 options.multiple = true;
 filter = ["*"];
+$("#contacts_modal").addClass('active');
 navigator.contacts.find(filter, onSuccess_contacts, onError_contacts, options);
 }
 
 
- function display_number() {
-    console.log("전화번호");
-window.plugins.sim.getSimInfo(successCallback, errorCallback);
-}
-
-function successCallback(result) {
-  alert(result.phoneNumber);
-}
-
-function errorCallback(error) {
-  alert(error);
-}
-
-
- // Android only: check permission
-function hasReadPermission() {
-  window.plugins.sim.hasReadPermission(successCallback, errorCallback);
-}
-
-// Android only: request permission
-function requestReadPermission() {
-  window.plugins.sim.requestReadPermission(successCallback, errorCallback);
-}
