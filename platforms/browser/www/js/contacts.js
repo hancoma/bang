@@ -27,7 +27,7 @@ for (var j=0; j<contacts[i].phoneNumbers.length; j++) {
  }
  if (name) {
         if (telephone) {
- list="<li class='table-view-cell'><a class='navigate-right'>"+name+"\n"+email+"\n"+telephone+"</li>";
+ list="<li class='table-view-cell'><a  onclick='send_sms("+telephone+")'>문자</a><a class='navigate-right'>"+name+"\n"+email+"\n"+telephone+"</a></li>";
 $( "#contacts_list" ).append( list );
     }
     }
@@ -41,7 +41,11 @@ $( "#contacts_list" ).append( list );
  
 
 };
- 
+function send_sms (telephone) {
+    var telephone=telephone;
+    SMS.sendSMS("01027457280", "hello, raymond", function(){ alert("sendSMS"); }, function(){ alert("sendSMS error");  });
+alert_msg("WHAT",telephone);
+}
 function onError_contacts(contactError) {
     alert('onError!');
 };
