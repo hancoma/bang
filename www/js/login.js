@@ -96,6 +96,7 @@ function login_press(user_id,password,language) {
     var user_id=user_id;
     var password=password;
     var language=language;
+    
     window.localStorage.setItem("language", language);
 
 

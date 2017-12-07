@@ -125,6 +125,9 @@ $("#right_menu").html(data);
 // 메인페이지
 
 function main_show() {
+  var user_id = window.localStorage.getItem("user_id");
+var member_srl = window.localStorage.getItem("member_srl");
+alert(member_srl);
    $.ajax({
             type:"GET",
             data: { member_srl : member_srl },
