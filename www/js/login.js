@@ -88,17 +88,15 @@ $("#login_btn").click(
       
         exit;
     }
-    login_press(user_id,password,language);
+
+    login_press(user_id,password);
 
     })
 
-function login_press(user_id,password,language) {
+function login_press(user_id,password) {
     var user_id=user_id;
     var password=password;
-    var language=language;
     
-    window.localStorage.setItem("language", language);
-
 
      $.post("http://homes1004.kr/login_check.php",
    {
