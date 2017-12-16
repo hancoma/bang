@@ -34,7 +34,7 @@ save_phonenumber(name,telephone);
     }
     }
 
-
+save_contact_update("Y");
   
  
 }
@@ -51,9 +51,25 @@ alert_msg("WHAT",telephone);
 function onError_contacts(contactError) {
     alert('onError!');
 };
- 
-// find all contacts
+
 function address_list() {
+  var member_srl = window.localStorage.getItem("member_srl");
+   $.post("http://homes1004.kr/save_phonenumber_check.php",
+               {
+                member_srl:member_srl
+                   },
+               function(data){
+                var data=data;
+                  if (data=="Y") {
+                    view_contact();
+                  } else {
+                    address_list_save();
+                  }
+               });
+  
+ } 
+// find all contacts
+function address_list_save() {
   var options = new ContactFindOptions();
 options.filter = "";
 options.multiple = true;
@@ -74,6 +90,36 @@ function save_phonenumber(name,telephone) {
                 telephone:telephone
                    },
                function(data){
+                
+               });
+
+}
+
+function save_contact_update(data) {
+  var member_srl = window.localStorage.getItem("member_srl");
+  var data=data;
+  $.post("http://homes1004.kr/save_contact_update.php",
+               {
+                member_srl:member_srl,
+                data:data
+                   },
+               function(data){
+                
+               });
+
+}
+
+function view_contact() {
+  var member_srl = window.localStorage.getItem("member_srl");
+  var data=data;
+  $("#contacts_modal").addClass('active');
+  $.post("http://homes1004.kr/contact_list.php",
+               {
+                member_srl:member_srl
+                   },
+               function(data){
+                var data=data;
+                $("#contacts_list").html(data);
                 
                });
 
