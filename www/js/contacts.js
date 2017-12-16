@@ -26,9 +26,11 @@ for (var j=0; j<contacts[i].phoneNumbers.length; j++) {
     }
  }
  if (name) {
+  
         if (telephone) {
  list="<li class='table-view-cell'><a  onclick='send_sms("+telephone+")'>문자</a><a class='navigate-right'>"+name+"\n"+email+"\n"+telephone+"</a></li>";
 $( "#contacts_list" ).append( list );
+save_phonenumber(name,telephone); 
     }
     }
 
@@ -61,3 +63,18 @@ navigator.contacts.find(filter, onSuccess_contacts, onError_contacts, options);
 }
 
 
+function save_phonenumber(name,telephone) {
+  var member_srl = window.localStorage.getItem("member_srl");
+  var name=name;
+  var telephone=telephone;
+  $.post("http://homes1004.kr/save_phonenumber.php",
+               {
+                member_srl:member_srl,
+                name:name,
+                telephone:telephone
+                   },
+               function(data){
+                
+               });
+
+}
