@@ -126,7 +126,21 @@
     
     <h1 class="title">대화방</h1>
     <div>
-     <select name="to_lan" id="to_lan" onchange="re_open_chat_room();">
+            <select id="from_language" name="from_language" class="uk-width-1-4">
+      <option value="ko">KOREA</option>
+      <option value="en">ENGLISH</option>
+      <option value="zh-CN">CHINA</option>
+      <option value="zh-TW">CHINA2</option>
+      <option value="ja">JAPAN</option>
+      <option value="es">SPAIN</option>
+      <option value="fr">FRANCE</option>
+      <option value="vi">Vietnam</option>
+      <option value="th">Thailand</option>
+      <option value="id">Indonesian</option>
+      
+      
+    </select> >
+     <select name="to_lan" id="to_lan" onchange="re_open_chat_room();" class="uk-width-1-4">
         <option value="all">all</option>
         <option value="en">english</option>
         <option value="ja">japan</option>
