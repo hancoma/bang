@@ -5,6 +5,7 @@ function save_chat() {
   console.log(memberuid);
 	var room_no=$("#room_no").val();
 	var chat_msg=$("#chat_msg").val();
+ var from_lan=$("from_lan").val();
 	if (!chat_msg){
 		alert_msg("msg","no comment !!");
 		exit;
@@ -14,7 +15,8 @@ function save_chat() {
    {
    	room_no:room_no,
    	memberuid:memberuid,
-   	chat_msg:chat_msg
+   	chat_msg:chat_msg,
+    from_lan:from_lan
     
        },
    function(data){
