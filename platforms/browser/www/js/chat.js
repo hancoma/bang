@@ -1,27 +1,7 @@
 
 
 
-function save_chat() {
-  console.log(memberuid);
-	var room_no=$("#room_no").val();
-	var chat_msg=$("#chat_msg").val();
-	if (!chat_msg){
-		alert_msg("msg","no comment !!");
-		exit;
-	}
 
-		$.post("http://homes1004.kr/chat/chat_save_app.php",
-   {
-   	room_no:room_no,
-   	memberuid:memberuid,
-   	chat_msg:chat_msg
-    
-       },
-   function(data){
-	open_chat(room_no);
-	$("#chat_msg").val('');
-   });
-}
 function gotop() {
   console.log("top");
    
@@ -117,6 +97,7 @@ function save_chat() {
   var uuid=device.uuid;
   var room_no=$("#room_no").val();
   var chat_msg=$("#chat_msg").val();
+  var from_lan=$("#from_lan").val();
   if (!chat_msg){
     alert_msg("경고","내용을 입력해주세요.");
     exit;
@@ -128,11 +109,12 @@ function save_chat() {
     room_no:room_no,
     uuid:uuid,
     member_srl:member_srl,
-    chat_msg:chat_msg
+    chat_msg:chat_msg,
+    from_lan:from_lan
        },
    function(data){
   //open_chat(room_no);
-  console.log(data);
+ // console.log(data);
   $("#chat_msg").val('');
 
    });
@@ -252,10 +234,7 @@ chat_page_top();
 
 }
 
-function close_chat_room() {
-  navigator.notification.confirm("대화방을 나가시겠습니까 ?", exit_chat_room, "대화방", "예,아니요"); 
-    
-}
+
 
 function exit_chat_room(button) {
     if(button==2){//If User selected No, then we just do nothing

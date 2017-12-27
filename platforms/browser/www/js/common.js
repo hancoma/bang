@@ -49,18 +49,39 @@ function trans_btn() {
   var trans_contents=$("#trans_contents_box").val();
   var trans_language=$("#trans_language").val();
   var trans_language2=$("#trans_language2").val();
+  var member_srl = window.localStorage.getItem("member_srl");
   
   console.log(trans_contents);
   $.post("http://homes1004.kr/trans_app.php",
    {
     trans_contents:trans_contents,
     trans_language:trans_language,
-    trans_language2:trans_language2
+    trans_language2:trans_language2,
+    member_srl:member_srl
     
        },
    function(data){
 $("#trans_contents_box2").val(data);
    });
+}
+function  trans_save_btn(argument) {
+  var trans_contents=$("#trans_contents_box").val();
+  var trans_contents2=$("#trans_contents_box2").val();
+  var member_srl = window.localStorage.getItem("member_srl");
+
+  alert_msg("알림","번역 내용이 저장 되었습니다.");
+  $.post("http://homes1004.kr/trans_save_app.php",
+   {
+    member_srl:member_srl,
+    trans_contents:trans_contents,
+    trans_contents2:trans_contents2
+    
+       },
+   function(data){
+$("#trans_contents_box2").val(data);
+   });
+
+  // body...
 }
 function save_room() {
       
