@@ -2,7 +2,7 @@ var user_id = window.localStorage.getItem("user_id");
 var member_srl = window.localStorage.getItem("member_srl");
 var language = window.localStorage.getItem("language");
 var uuid=device.uuid;
-var basic_url="http://ku4h.com/";
+var basic_url="http://homes1004.kr/";
 var room_no=0;
 var menu;
 function trans_show() {
@@ -18,7 +18,17 @@ function trans_history_btn() {
 }
 function trans_list_view() {
      var member_srl = window.localStorage.getItem("member_srl");
-     
+
+     $.post("http://homes1004.kr/trans_list.php",
+   {
+    
+    member_srl:member_srl
+    
+       },
+   function(data){
+   
+$("#trans_list_contents").html(data);
+   });
 }
 
 function friend_add() {
