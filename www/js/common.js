@@ -9,6 +9,17 @@ function trans_show() {
   
     $("#trans_modal").addClass('active');
 }
+function trans_history_btn() {
+    
+    
+
+    $("#trans_list_modal").addClass('active');
+    trans_list_view();
+}
+function trans_list_view() {
+     var member_srl = window.localStorage.getItem("member_srl");
+     
+}
 
 function friend_add() {
     var url="http:/homes1004.kr/kakaolink.php"
