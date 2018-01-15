@@ -31,6 +31,23 @@ $("#trans_list_contents").html(data);
    });
 }
 
+function trans_view_contents(no){
+  var no=no;
+      $("#trans_view_modal").addClass('active');
+
+$.post("http://homes1004.kr/trans_view.php",
+   {
+    
+    no:no
+    
+       },
+   function(data){
+   
+$("#trans_view_contents").html(data);
+   });
+
+}
+
 function friend_add() {
     var url="http:/homes1004.kr/kakaolink.php"
   open_web(url);
