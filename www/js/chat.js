@@ -267,3 +267,8 @@ function delete_chat_go(no) {
 
    });
 }
+
+function chat_member_list() {
+   $("#chat_member_list_modal").addClass('active');
+      
+}
