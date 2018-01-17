@@ -1,4 +1,4 @@
-
+var member_srl = window.localStorage.getItem("member_srl");
 
 
 
@@ -34,7 +34,7 @@ function make_chat_room() {
     uuid:uuid
        },
    function(data){
-   console.log(data);
+ //  console.log(data);
     chat_show();
     alert_msg("알림","대화방이 생성되었습니다.");
   var modal = UIkit.modal("#make_chat_uk_modal");
@@ -65,7 +65,7 @@ function open_chat_room (no) {
 $("#chat_room_modal").addClass('active');
   var no=no;
   var uuid=device.uuid;
-   console.log(member_srl);
+  // console.log(member_srl);
  $.post("http://homes1004.kr/chat/chat_list_app.php",
    {
     no:no,
@@ -74,9 +74,9 @@ $("#chat_room_modal").addClass('active');
     
        },
    function(data){
-  console.log(data);
+ // console.log(data);
 $("#chat_body").html(data);
-console.log(data);
+//console.log(data);
 chat_page_top();
    });
   $("#room_no").val(no);
@@ -87,7 +87,7 @@ chat_page_top();
 function chat_page_top() {
   $(document).ready(function(){
   htop=$('#chat_body').height();
-  console.log("h"+htop);
+ // console.log("h"+htop);
   $('.content').scrollTop(htop); 
   });
 }
@@ -131,8 +131,8 @@ var height2=$("#chat_room_modal").height();
 var last_no=$("#last_no").val();
 var postop=(top*-1)+height2-90;
 var var1=height-postop;
-console.log(last_no);
-console.log("top"+postop+"height"+height+"cheight"+height2+"var1"+var1);
+//console.log(last_no);
+//console.log("top"+postop+"height"+height+"cheight"+height2+"var1"+var1);
 if (height<height2) {
 check_new_chat();
 } else if (var1<190) {
@@ -155,7 +155,7 @@ check_new_chat();
   
   }
 
-  console.log(last_no+" "+room_no+" "+check_chat); 
+  // console.log(last_no+" "+room_no+" "+check_chat); 
    $.post("http://homes1004.kr/chat/check_new_chat_no_app.php",
    {
     
@@ -164,7 +164,7 @@ check_new_chat();
     
        },
    function(data){
-    console.log(data);
+ //   console.log(data);
      var data=data;
 
      if (data) {
@@ -186,7 +186,7 @@ function reload_chat(room_no,last_no) {
   var room_no=room_no;
   var last_no=last_no;
   var uuid=device.uuid;
-  console.log('last_no'+last_no+" "+room_no);
+//  console.log('last_no'+last_no+" "+room_no);
    $.post("http://homes1004.kr/chat/check_list_app.php",
    {
     
@@ -214,7 +214,7 @@ function re_open_chat_room () {
   var no=$("#room_no").val();
   var uuid=device.uuid;
   var to_lan=$("#to_lan").val();
-   console.log(member_srl);
+//   console.log(member_srl);
  $.post("http://homes1004.kr/chat/chat_list_app.php",
    {
     no:no,
@@ -225,7 +225,7 @@ function re_open_chat_room () {
        },
    function(data){
 $("#chat_body").html(data);
-console.log(data);
+//console.log(data);
 chat_page_top();
    });
   $("#room_no").val(no);
@@ -269,6 +269,19 @@ function delete_chat_go(no) {
 }
 
 function chat_member_list() {
+  var member_srl = window.localStorage.getItem("member_srl");
    $("#chat_member_list_modal").addClass('active');
+   var room_no=$("#room_no").val();
+   // console.log("회원번호"+member_srl+" room_no "+ room_no);
+    $.post("http://homes1004.kr/chat/delete_chat.php",
+   {
+    member_srl:member_srl,
+    room_no:room_no
+       },
+   function(data){
+     
+
+   });
+
       
 }

@@ -21,6 +21,7 @@ var user_id = window.localStorage.getItem("user_id");
 var member_srl = window.localStorage.getItem("member_srl");
 var language= window.localStorage.getItem("language");
 var ref_join;
+console.log(member_srl);
 var app = {
     // Application Constructor
     initialize: function() {
