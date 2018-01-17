@@ -273,7 +273,7 @@ function chat_member_list() {
    $("#chat_member_list_modal").addClass('active');
    var room_no=$("#room_no").val();
    // console.log("회원번호"+member_srl+" room_no "+ room_no);
-    $.post("http://homes1004.kr/chat/delete_chat.php",
+    $.post("http://homes1004.kr/chat/chat_member_list_app.php",
    {
     member_srl:member_srl,
     room_no:room_no
