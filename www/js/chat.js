@@ -272,13 +272,15 @@ function chat_member_list() {
   var member_srl = window.localStorage.getItem("member_srl");
    $("#chat_member_list_modal").addClass('active');
    var room_no=$("#room_no").val();
-   // console.log("회원번호"+member_srl+" room_no "+ room_no);
+    console.log("회원번호"+member_srl+" room_no "+ room_no);
     $.post("http://homes1004.kr/chat/chat_member_list_app.php",
    {
     member_srl:member_srl,
     room_no:room_no
        },
    function(data){
+    console.log(data);
+    $("#chat_member_list_contents").html(data);
      
 
    });
