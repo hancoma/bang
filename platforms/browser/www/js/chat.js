@@ -287,3 +287,23 @@ function chat_member_list() {
 
       
 }
+
+// 방삭제 
+function delete_chat_room() {
+  var room_no=$("#room_no").val();
+  
+navigator.notification.confirm(
+    '대화방을 삭제 하시겠습니까?', // message
+     check_room_delete,            // callback to invoke with index of button pressed
+    '알림',           // title
+    ['삭제','취소']     // buttonLabels
+);
+}
+
+function check_room_delete(btn) {
+      var btn=btn;
+      if (btn==1) {
+        alert_msg("알림",'삭제 되었습니다.')
+      }
+    
+}
