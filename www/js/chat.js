@@ -244,6 +244,25 @@ function exit_chat_room(button) {
         menu="chat";
     }
 }
+function black_list(member_srl) {
+     var room_no=$("#room_no").val();
+     var member_srl=member_srl;
+      console.log("회원번호"+member_srl+" room_no "+ room_no);
+
+       $.post("http://homes1004.kr/chat/save_black_list.php",
+   {
+   room_no:room_no,
+   member_srl:member_srl
+    
+       },
+   function(data){
+    chat_member_list();
+
+   });
+
+      alert_msg("알림","선택하신 회원을 강퇴 시켰습니다.");
+
+}
 
 function delete_chat(room_no,no) {
   var room_no=room_no;
