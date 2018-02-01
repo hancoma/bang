@@ -302,8 +302,25 @@ navigator.notification.confirm(
 
 function check_room_delete(btn) {
       var btn=btn;
+      var room_no=$("#room_no").val();
       if (btn==1) {
+    
+        $.post("http://homes1004.kr/chat/chat_room_delete_app.php",
+   {
+    
+    room_no:room_no
+       },
+   function(data){
+        console.log(data);
         alert_msg("알림",'삭제 되었습니다.')
+  $("#chat_member_list_modal").removeClass('active');
+  $("#chat_room_modal").removeClass('active');
+  chat_show();
+
+
+   });
+
+
       }
     
 }
