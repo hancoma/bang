@@ -263,13 +263,14 @@ function get_bang() {
 function chat_show() {
   var uuid=device.uuid;
   menu="chat";
+  var member_srl = window.localStorage.getItem("member_srl");
   console.log("대화방");
   $("#map").hide();
   $("#main_contents").hide();
   $("#chat_icon").addClass('active');
   $.ajax({
             type:"GET",
-            data: { uuid : uuid },
+            data: { member_srl : member_srl },
             url:"http://www.homes1004.kr/chat/chat_room_list_app.php",
             success:function(data){
                 $("#chat_contents").html(data);
