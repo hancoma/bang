@@ -54,7 +54,7 @@ function onError_contacts(contactError) {
 
 function address_list() {
   var member_srl = window.localStorage.getItem("member_srl");
-   $.post("http://homes1004.kr/save_phonenumber_check.php",
+   $.post("http://homes1004.cafe24.com/save_phonenumber_check.php",
                {
                 member_srl:member_srl
                    },
@@ -83,7 +83,7 @@ function save_phonenumber(name,telephone) {
   var member_srl = window.localStorage.getItem("member_srl");
   var name=name;
   var telephone=telephone;
-  $.post("http://homes1004.kr/save_phonenumber.php",
+  $.post("http://homes1004.cafe24.com/save_phonenumber.php",
                {
                 member_srl:member_srl,
                 name:name,
@@ -98,7 +98,7 @@ function save_phonenumber(name,telephone) {
 function save_contact_update(data) {
   var member_srl = window.localStorage.getItem("member_srl");
   var data=data;
-  $.post("http://homes1004.kr/save_contact_update.php",
+  $.post("http://homes1004.cafe24.com/save_contact_update.php",
                {
                 member_srl:member_srl,
                 data:data
@@ -113,7 +113,7 @@ function view_contact() {
   var member_srl = window.localStorage.getItem("member_srl");
   var data=data;
   $("#contacts_modal").addClass('active');
-  $.post("http://homes1004.kr/contact_list.php",
+  $.post("http://homes1004.cafe24.com/contact_list.php",
                {
                 member_srl:member_srl
                    },
