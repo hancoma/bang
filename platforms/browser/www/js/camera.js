@@ -42,7 +42,7 @@ sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
  
     var img="data:image/jpeg;base64," + imageData;
     var uuid=device.uuid;
-     $.post("http://homes1004.kr/save_img_data.php",
+     $.post("http://homes1004.cafe24.com/save_img_data.php",
    {
     uuid:uuid,
     img:img
@@ -79,7 +79,7 @@ sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
         options.chunkedMode = false;
 
         var ft = new FileTransfer();
-        ft.upload(imageURI, "http://homes1004.kr/upload_bang_app.php", win, fail, options);
+        ft.upload(imageURI, "http://homes1004.cafe24.com/upload_bang_app.php", win, fail, options);
     }
 
      function uploadPhoto_trans(imageURI) {
@@ -103,7 +103,7 @@ sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
         options.chunkedMode = false;
 
         var ft = new FileTransfer();
-        ft.upload(imageURI, "http://homes1004.kr/upload_trans_app.php", win_trans, fail, options);
+        ft.upload(imageURI, "http://homes1004.cafe24.com/upload_trans_app.php", win_trans, fail, options);
     }
 
 
@@ -129,7 +129,7 @@ sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
         options.chunkedMode = false;
 
         var ft = new FileTransfer();
-        ft.upload(imageURI, "http://homes1004.kr/upload_img.php", win_img, fail, options);
+        ft.upload(imageURI, "http://homes1004.cafe24.com/upload_img.php", win_img, fail, options);
     }
 
 
@@ -145,7 +145,7 @@ function win(r) {
         console.log("Sent = " + r.bytesSent); 
 navigator.notification.activityStop();
 var uuid=device.uuid;
-      var img_src="http://homes1004.kr/photo3/"+r.response;
+      var img_src="http://homes1004.cafe24.com/photo3/"+r.response;
       var file_name=uuid+".jpg";
       console.log(img_src);
     //$("#photo1").attr("src", img_src);
@@ -162,7 +162,7 @@ var uuid=device.uuid;
         console.log("Sent = " + r.bytesSent); 
 navigator.notification.activityStop();
 var uuid=device.uuid;
-      var img_src="http://homes1004.kr/upload_img/"+r.response;
+      var img_src="http://homes1004.cafe24.com/upload_img/"+r.response;
       var file_name=uuid+".jpg";
  ref_img.executeScript({code: "insert_img('"+img_src+"');"});
     

@@ -2,7 +2,7 @@ var user_id = window.localStorage.getItem("user_id");
 var member_srl = window.localStorage.getItem("member_srl");
 var language = window.localStorage.getItem("language");
 var uuid=device.uuid;
-var basic_url="http://homes1004.kr/";
+var basic_url="http://homes1004.cafe24.com/";
 var room_no=0;
 var menu;
 function trans_show() {
@@ -19,7 +19,7 @@ function trans_history_btn() {
 function trans_list_view() {
      var member_srl = window.localStorage.getItem("member_srl");
 
-     $.post("http://homes1004.kr/trans_list.php",
+     $.post("http://homes1004.cafe24.com/trans_list.php",
    {
     
     member_srl:member_srl
@@ -35,7 +35,7 @@ function trans_view_contents(no){
   var no=no;
       $("#trans_view_modal").addClass('active');
 
-$.post("http://homes1004.kr/trans_view.php",
+$.post("http://homes1004.cafe24.com/trans_view.php",
    {
     
     no:no
@@ -49,7 +49,7 @@ $("#trans_view_contents").html(data);
 }
 
 function friend_add() {
-    var url="http:/homes1004.kr/kakaolink.php"
+    var url="http:/homes1004.cafe24.com/kakaolink.php"
   open_web(url);
 }
 
@@ -89,7 +89,7 @@ function trans_btn() {
   var member_srl = window.localStorage.getItem("member_srl");
   
   console.log(trans_contents);
-  $.post("http://homes1004.kr/trans_app.php",
+  $.post("http://homes1004.cafe24.com/trans_app.php",
    {
     trans_contents:trans_contents,
   
@@ -106,7 +106,7 @@ function  trans_save_btn(argument) {
   var member_srl = window.localStorage.getItem("member_srl");
 
   alert_msg("알림","번역 내용이 저장 되었습니다.");
-  $.post("http://homes1004.kr/trans_save_app.php",
+  $.post("http://homes1004.cafe24.com/trans_save_app.php",
    {
     member_srl:member_srl,
     trans_contents2:trans_contents2
@@ -124,7 +124,7 @@ function save_room() {
     
     var params = jQuery("#room_form").serialize(); // serialize() : 입력된 모든Element(을)를 문자열의 데이터에 serialize 한다.
     jQuery.ajax({
-        url: 'http://homes1004.kr/save_room.php',
+        url: 'http://homes1004.cafe24.com/save_room.php',
         type: 'POST',
         data:params,
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8', 
@@ -187,7 +187,7 @@ alert(member_srl);
    $.ajax({
             type:"GET",
             data: { member_srl : member_srl },
-            url:"http://homes1004.kr/bang_list.php",
+            url:"http://homes1004.cafe24.com/bang_list.php",
             success:function(data){
                 $("#main_contents").html(data);
             }
@@ -198,7 +198,7 @@ function input_bang() {
    $.ajax({
             type:"GET",
             data: { uuid : uuid },
-            url:"http://homes1004.kr/bang_input.php",
+            url:"http://homes1004.cafe24.com/bang_input.php",
             success:function(data){
                 $("#main_contents").html(data);
             }
@@ -261,15 +261,18 @@ function chat_show() {
   var uuid=device.uuid;
   menu="chat";
   var member_srl = window.localStorage.getItem("member_srl");
+
   console.log("대화방");
   $("#map").hide();
   $("#main_contents").hide();
   $("#chat_icon").addClass('active');
+
   $.ajax({
             type:"GET",
             data: { member_srl : member_srl },
-            url:"http://www.homes1004.kr/chat/chat_room_list_app.php",
+            url:"http://homes1004.cafe24.com/chat/chat_room_list_app.php",
             success:function(data){
+             
                 $("#chat_contents").html(data);
             }
         })

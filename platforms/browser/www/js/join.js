@@ -90,7 +90,7 @@ function login_press(user_id,password) {
     var user_id=user_id;
     var password=password;
 
-     $.post("http://homes1004.kr/login_check.php",
+     $.post("http://homes1004.cafe24.com/login_check.php",
    {
     user_id:user_id,
     password:password
@@ -105,7 +105,7 @@ function login_press(user_id,password) {
         window.localStorage.setItem("user_id", user_id);
         user_id = window.localStorage.getItem("user_id");
         console.log(user_id);
-               $.post("http://homes1004.kr/login_check_uid.php",
+               $.post("http://homes1004.cafe24.com/login_check_uid.php",
                {
                 user_id:user_id
                    },
@@ -127,7 +127,7 @@ function login_press(user_id,password) {
 }
 
 function join_popup() {
-    var url="http://homes1004.kr/xe/index.php?act=dispMemberSignUpForm";
+    var url="http://homes1004.cafe24.com/xe/index.php?act=dispMemberSignUpForm";
         open_url(url);
         
 }
