@@ -136,7 +136,7 @@ sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
 function win_trans(r) {
 
 navigator.notification.activityStop();
-console.log(r.response);
+alert(r.response);
       img_trans_show(r.response);
 }
 function win(r) {
