@@ -62,10 +62,11 @@ function chat_room_make(title,member_srl,uuid){
 
 function open_chat_room (no) {
   menu="chat_open";
+  $("#chat_body").html('');
 $("#chat_room_modal").addClass('active');
   var no=no;
   var uuid=device.uuid;
-  // console.log(member_srl);
+   console.log("회원 번호 "+member_srl);
  $.post("http://homes1004.cafe24.com/chat/chat_list_app.php",
    {
     no:no,
