@@ -6,7 +6,7 @@ function getImage_trans() {
         navigator.camera.getPicture(uploadPhoto_trans, function(message) {
 // alert('사진 등록에 실패 했습니다.');
 },{
-quality: 100,
+quality: 10,
 destinationType: navigator.camera.DestinationType.FILE_URI,
 sourceType: navigator.camera.PictureSourceType.CAMERA
 });
