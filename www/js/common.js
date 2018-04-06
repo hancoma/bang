@@ -9,6 +9,11 @@ function trans_show() {
   
     $("#trans_modal").addClass('active');
 }
+function show_wallet() {
+    
+    $("#wallet_modal").addClass('active');
+}
+
 function trans_history_btn() {
     
     
