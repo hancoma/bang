@@ -1,13 +1,18 @@
-var callback = function(err, contents){
-  if(err){
-    console.error(err._message);
-  }
-  alert('The QR Code contains: ' + contents);
-};
 function qrcode_reader() {
-  alert("qrcode");
-QRScanner.scan(callback);
+  cordova.plugins.barcodeScanner.scan(
+      function (result) {
+          alert("We got a barcode\n" +
+                "Result: " + result.text + "\n" +
+                "Format: " + result.format + "\n" +
+                "Cancelled: " + result.cancelled);
+      },
+      function (error) {
+          alert_msg("경고","qrcode를 다시 읽어 주세요.");
+      }
+   );
 }
+
+
 function getImage_trans() {
  
 
