@@ -12,6 +12,36 @@ function trans_show() {
 function show_wallet() {
     
     $("#wallet_modal").addClass('active');
+    var member_srl = window.localStorage.getItem("member_srl");
+    console.log("지갑"+member_srl);
+     $.post("http://homes1004.cafe24.com/wallet_main.php",
+   { 
+    
+    member_srl:member_srl
+    
+       },
+   function(data){
+   
+$("#wallet_contents").html(data);
+   });
+}
+
+
+function send_point() {
+    
+    $("#send_point_modal").addClass('active');
+    var member_srl = window.localStorage.getItem("member_srl");
+    console.log("보내기지갑"+member_srl);
+     $.post("http://homes1004.cafe24.com/send_point.php",
+   { 
+    
+    member_srl:member_srl
+    
+       },
+   function(data){
+   
+$("#send_point_contents").html(data);
+   });
 }
 
 function trans_history_btn() {
