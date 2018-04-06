@@ -1,4 +1,13 @@
-
+var callback = function(err, contents){
+  if(err){
+    console.error(err._message);
+  }
+  alert('The QR Code contains: ' + contents);
+};
+function qrcode_reader() {
+  alert("qrcode");
+QRScanner.scan(callback);
+}
 function getImage_trans() {
  
 
