@@ -48,7 +48,28 @@ $("#send_point_contents").html(data);
 function point_press() {
   var member_srl=$("#member_srl").val();
   var member_srl2=$("#member_srl2").val();
-  
+  var point=$("#point").val();
+  if (!member_srl2) {
+    alert_msg("경고","받으시는 분 지갑주소를 입력하세요.");
+    return;
+  }
+  if (!point) {
+    alert_msg("경고","보내실 포인트를 입력하세요.");
+    return;
+  }
+
+   $.post("http://homes1004.cafe24.com/send_press.php",
+   { 
+    member_srl:member_srl,
+    member_srl2:member_srl2,
+    point:point
+    
+       },
+   function(data){
+   alert_msg("메시지",data);
+send_point();
+   });
+
 
 }
 
