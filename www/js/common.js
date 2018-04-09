@@ -31,6 +31,7 @@ function send_point() {
     
     $("#send_point_modal").addClass('active');
     var member_srl = window.localStorage.getItem("member_srl");
+
     console.log("보내기지갑"+member_srl);
      $.post("http://homes1004.cafe24.com/send_point.php",
    { 
@@ -42,6 +43,13 @@ function send_point() {
    
 $("#send_point_contents").html(data);
    });
+}
+
+function point_press() {
+  var member_srl=$("#member_srl").val();
+  var member_srl2=$("#member_srl2").val();
+  
+
 }
 
 function trans_history_btn() {
