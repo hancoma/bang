@@ -1,3 +1,16 @@
+function qrcode_reader() {
+  cordova.plugins.barcodeScanner.scan(
+      function (result) {
+        var member_srl2=result.text;
+        $("#member_srl2").val(member_srl2);
+          //alert("We got a barcode\n" +  "Result: " + result.text + "\n" +  "Format: " + result.format + "\n" +    "Cancelled: " + result.cancelled);
+      },
+      function (error) {
+          alert_msg("경고","qrcode를 다시 읽어 주세요.");
+      }
+   );
+}
+
 
 function getImage_trans() {
  
@@ -6,7 +19,7 @@ function getImage_trans() {
         navigator.camera.getPicture(uploadPhoto_trans, function(message) {
 // alert('사진 등록에 실패 했습니다.');
 },{
-quality: 100,
+quality: 10,
 destinationType: navigator.camera.DestinationType.FILE_URI,
 sourceType: navigator.camera.PictureSourceType.CAMERA
 });

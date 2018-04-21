@@ -618,6 +618,20 @@ module.exports = [
         "clobbers": [
             "window.SMS"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-qrscanner/www/www.min.js",
+        "id": "cordova-plugin-qrscanner.QRScanner",
+        "pluginId": "cordova-plugin-qrscanner",
+        "clobbers": [
+            "QRScanner"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-qrscanner/src/browser/plugin.min.js",
+        "id": "cordova-plugin-qrscanner.QRScannerProxy",
+        "pluginId": "cordova-plugin-qrscanner",
+        "runs": true
     }
 ];
 module.exports.metadata = 
@@ -645,7 +659,8 @@ module.exports.metadata =
     "cordova-plugin-vibration": "2.1.5",
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-sim": "1.3.3",
-    "cordova-plugin-sms": "1.0.5"
+    "cordova-plugin-sms": "1.0.5",
+    "cordova-plugin-qrscanner": "2.5.0"
 }
 // BOTTOM OF METADATA
 });

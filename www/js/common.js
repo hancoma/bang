@@ -9,6 +9,70 @@ function trans_show() {
   
     $("#trans_modal").addClass('active');
 }
+function show_wallet() {
+    
+    $("#wallet_modal").addClass('active');
+    var member_srl = window.localStorage.getItem("member_srl");
+    console.log("지갑"+member_srl);
+     $.post("http://homes1004.cafe24.com/wallet_main.php",
+   { 
+    
+    member_srl:member_srl
+    
+       },
+   function(data){
+   
+$("#wallet_contents").html(data);
+   });
+}
+
+
+function send_point() {
+    
+    $("#send_point_modal").addClass('active');
+    var member_srl = window.localStorage.getItem("member_srl");
+
+    console.log("보내기지갑"+member_srl);
+     $.post("http://homes1004.cafe24.com/send_point.php",
+   { 
+    
+    member_srl:member_srl
+    
+       },
+   function(data){
+   
+$("#send_point_contents").html(data);
+   });
+}
+
+function point_press() {
+  var member_srl=$("#member_srl").val();
+  var member_srl2=$("#member_srl2").val();
+  var point=$("#point").val();
+  if (!member_srl2) {
+    alert_msg("경고","받으시는 분 지갑주소를 입력하세요.");
+    return;
+  }
+  if (!point) {
+    alert_msg("경고","보내실 포인트를 입력하세요.");
+    return;
+  }
+
+   $.post("http://homes1004.cafe24.com/send_press.php",
+   { 
+    member_srl:member_srl,
+    member_srl2:member_srl2,
+    point:point
+    
+       },
+   function(data){
+   alert_msg("메시지",data);
+send_point();
+   });
+
+
+}
+
 function trans_history_btn() {
     
     
